@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class activateOutline : MonoBehaviour
 {
-public GameObject targetToOutline;
+    public GameObject targetToOutline;
+    public GameObject player1;
+    
+    
     
     void OnTriggerEnter(Collider Player)
     {
@@ -12,6 +15,7 @@ public GameObject targetToOutline;
         {
             Debug.Log("outline activé");
             targetToOutline.GetComponent<Outline>().enabled = true;
+            //isObjet = 1;
         }
     }
 
@@ -21,6 +25,7 @@ public GameObject targetToOutline;
         {
             Debug.Log("outline désactivé");
             targetToOutline.GetComponent<Outline>().enabled = false;
+            //isObjet = 0;
         }
     }
 }
