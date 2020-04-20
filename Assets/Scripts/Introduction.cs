@@ -2,77 +2,146 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Introduction : MonoBehaviour
 {
-    public GameObject scene1;
-    public GameObject scene2;
-    public GameObject scene3;
-    public GameObject scene4;
-    public GameObject scene5;
-    public GameObject scene6;
-    public GameObject scene7;
-    public GameObject scene8;
-    public GameObject scene9;
-    
+    public Image scene1;
+    public Image scene2;
+    public Image scene3;
+    public Image scene4;
+    public Image scene5;
+    public Image scene6;
+    public Image scene7;
+    public Image scene8;
+    public Image scene9;
 
-    public GameObject bouton1;
-    public GameObject bouton2;
-    public GameObject bouton3;
-    public GameObject bouton4;
-    public GameObject bouton5;
-    public GameObject bouton6;
-    public GameObject bouton7;
-    public GameObject bouton8;
-    public GameObject bouton9;
-    
-    public void Scene1()
+    public int compteur = 1;
+
+    bool fo1 = false;
+    bool fo2 = false;
+    bool fo3 = false;
+    bool fo4 = false;
+    bool fo5 = false;
+    bool fo6 = false;
+    bool fo7 = false;
+    bool fo8 = false;
+    bool fo9 = false;
+
+    public void Start()
     {
+        scene1.canvasRenderer.SetAlpha(1f);
+        scene2.canvasRenderer.SetAlpha(1f);
+        scene3.canvasRenderer.SetAlpha(1f);
+        scene4.canvasRenderer.SetAlpha(1f);
+        scene5.canvasRenderer.SetAlpha(1f);
+        scene6.canvasRenderer.SetAlpha(1f);
+        scene7.canvasRenderer.SetAlpha(1f);
+        scene8.canvasRenderer.SetAlpha(1f);
+    }
+    public void Update()
+    {
+        if (fo1)
+            fadeout1();
+        if (fo2)
+            fadeout2();
+        if (fo3)
+            fadeout3();
+        if (fo4)
+            fadeout4();
+        if (fo5)
+            fadeout5();
+        if (fo6)
+            fadeout6();
+        if (fo7)
+            fadeout7();
+        if (fo8)
+            fadeout8();
+    }
+    public void Button()
+    {
+        switch (compteur)
+        {
+            case 1 :
+                compteur++;
+                fo1 = true;
+                break;
+
+            case 2 :
+                compteur++;
+                fo2 = true;
+
+                break;
+            case 3 :
+                compteur++;
+                fo3 = true;
+                break;
+            case 4:
+                compteur++;
+                fo4 = true;
+                break;
+            case 5:
+                compteur++;
+                fo5 = true;
+                break;
+            case 6:
+                compteur++;
+                fo6= true;
+                break;
+            case 7:
+                compteur++;
+                fo7 = true;
+                break;
+            case 8:
+                compteur++;
+                fo8 = true;
+                break;
+            case 9:
+                compteur++;
+                Destroy(scene9.gameObject);
+                SceneManager.LoadScene(1);
+                break;
+        }
+    }
+
+  void fadeout1()
+    {
+        scene1.CrossFadeAlpha(-1f, 2, false);
         
-        Destroy(scene1.gameObject);
-        Destroy(bouton1.gameObject);
     }
-    public void Scene2()
+    void fadeout2()
     {
-        Destroy(scene2.gameObject);
-        Destroy(bouton2.gameObject);
+        scene2.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene3()
+    void fadeout3()
     {
-        Destroy(scene3.gameObject);
-        Destroy(bouton3.gameObject);
+        scene3.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene4()
+    void fadeout4()
     {
-        Destroy(scene4.gameObject);
-        Destroy(bouton4.gameObject);
+        scene4.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene5()
+    void fadeout5()
     {
-        Destroy(scene5.gameObject);
-        Destroy(bouton5.gameObject);
+        scene5.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene6()
+    void fadeout6()
     {
-        Destroy(scene6.gameObject);
-        Destroy(bouton6.gameObject);
+        scene6.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene7()
+    void fadeout7()
     {
-        Destroy(scene7.gameObject);
-        Destroy(bouton7.gameObject);
+        scene7.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene8()
+    void fadeout8()
     {
-        Destroy(scene8.gameObject);
-        Destroy(bouton8.gameObject);
+        scene8.CrossFadeAlpha(-1f, 2, false);
+
     }
-    public void Scene9()
-    {
-        Debug.Log("destroy");
-        Destroy(scene9.gameObject);
-        Destroy(bouton9.gameObject);
-        SceneManager.LoadScene(1);
-    }
-    
 }
