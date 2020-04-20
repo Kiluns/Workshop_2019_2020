@@ -6,11 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/Nicolas.unity
-    guid: c334737f2933fd44480f7e733882472b
-=======
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
->>>>>>> 58c9d0429cc7b548b5c76501fa99a211b262a5f0
   m_configObjects: {}
