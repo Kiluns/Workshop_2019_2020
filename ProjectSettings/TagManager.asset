@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
+  - Fire
   - Ground
-=======
-  - Canvas
->>>>>>> 492cf7c0647fea6787db25bc6f9f7a482e5cf4ca
   layers:
   - Default
   - TransparentFX
