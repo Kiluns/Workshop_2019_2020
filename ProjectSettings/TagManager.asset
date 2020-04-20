@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - Ground
-=======
-  - Canvas
->>>>>>> 492cf7c0647fea6787db25bc6f9f7a482e5cf4ca
+  tags: []
   layers:
   - Default
   - TransparentFX
