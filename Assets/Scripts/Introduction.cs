@@ -6,17 +6,29 @@ using UnityEngine.UI;
 
 public class Introduction : MonoBehaviour
 {
+    [HideInInspector]
     public Image scene1;
+    [HideInInspector]
     public Image scene2;
+    [HideInInspector]
     public Image scene3;
+    [HideInInspector]
     public Image scene4;
+    [HideInInspector]
     public Image scene5;
+    [HideInInspector]
     public Image scene6;
+    [HideInInspector]
     public Image scene7;
+    [HideInInspector]
     public Image scene8;
+    [HideInInspector]
     public Image scene9;
 
-    public int compteur = 1;
+    int compteur = 1;
+    public float tempsDuFondu = 2f;
+    float timer=0;
+    public float tempsDeImage =10f;
 
     bool fo1 = false;
     bool fo2 = false;
@@ -26,21 +38,24 @@ public class Introduction : MonoBehaviour
     bool fo6 = false;
     bool fo7 = false;
     bool fo8 = false;
-    bool fo9 = false;
+    
 
     public void Start()
     {
+        timer = tempsDeImage;
         scene1.canvasRenderer.SetAlpha(1f);
-        scene2.canvasRenderer.SetAlpha(1f);
-        scene3.canvasRenderer.SetAlpha(1f);
-        scene4.canvasRenderer.SetAlpha(1f);
-        scene5.canvasRenderer.SetAlpha(1f);
-        scene6.canvasRenderer.SetAlpha(1f);
-        scene7.canvasRenderer.SetAlpha(1f);
-        scene8.canvasRenderer.SetAlpha(1f);
+        scene2.canvasRenderer.SetAlpha(-1f);
+        scene3.canvasRenderer.SetAlpha(-1f);
+        scene4.canvasRenderer.SetAlpha(-1f);
+        scene5.canvasRenderer.SetAlpha(-1f);
+        scene6.canvasRenderer.SetAlpha(-1f);
+        scene7.canvasRenderer.SetAlpha(-1f);
+        scene8.canvasRenderer.SetAlpha(-1f);
+        scene9.canvasRenderer.SetAlpha(-1f);
     }
     public void Update()
     {
+        timer -= Time.deltaTime;
         if (fo1)
             fadeout1();
         if (fo2)
@@ -57,6 +72,56 @@ public class Introduction : MonoBehaviour
             fadeout7();
         if (fo8)
             fadeout8();
+
+        if(compteur==1 &&  timer <=0)
+        {
+            compteur++;
+            fo1 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 2 && timer <= 0)
+        {
+            compteur++;
+            fo2 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 3 && timer <= 0)
+        {
+            compteur++;
+            fo3 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 4 && timer <= 0)
+        {
+            compteur++;
+            fo4 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 5 && timer <= 0)
+        {
+            compteur++;
+            fo5 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 6 && timer <= 0)
+        {
+            compteur++;
+            fo6 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 7 && timer <= 0)
+        {
+            compteur++;
+            fo7 = true;
+            timer = tempsDeImage;
+        }
+        if (compteur == 8 && timer <= 0)
+        {
+            compteur++;
+            fo8 = true;
+            timer = tempsDeImage;
+        }
+        
     }
     public void Button()
     {
@@ -65,36 +130,43 @@ public class Introduction : MonoBehaviour
             case 1 :
                 compteur++;
                 fo1 = true;
+                timer = tempsDeImage;
                 break;
 
             case 2 :
                 compteur++;
                 fo2 = true;
-
+                timer = tempsDeImage;
                 break;
             case 3 :
                 compteur++;
                 fo3 = true;
+                timer = tempsDeImage;
                 break;
             case 4:
                 compteur++;
                 fo4 = true;
+                timer = tempsDeImage;
                 break;
             case 5:
                 compteur++;
                 fo5 = true;
+                timer = tempsDeImage;
                 break;
             case 6:
                 compteur++;
                 fo6= true;
+                timer = tempsDeImage;
                 break;
             case 7:
                 compteur++;
                 fo7 = true;
+                timer = tempsDeImage;
                 break;
             case 8:
                 compteur++;
                 fo8 = true;
+                timer = tempsDeImage;
                 break;
             case 9:
                 compteur++;
@@ -106,42 +178,50 @@ public class Introduction : MonoBehaviour
 
   void fadeout1()
     {
-        scene1.CrossFadeAlpha(-1f, 2, false);
-        
+        scene1.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene2.CrossFadeAlpha(1f, tempsDuFondu, false);
+
     }
     void fadeout2()
     {
-        scene2.CrossFadeAlpha(-1f, 2, false);
+        scene2.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene3.CrossFadeAlpha(1f, tempsDuFondu, false);
 
     }
     void fadeout3()
     {
-        scene3.CrossFadeAlpha(-1f, 2, false);
-
+        scene3.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene4.CrossFadeAlpha(1f, tempsDuFondu, false);
     }
     void fadeout4()
     {
-        scene4.CrossFadeAlpha(-1f, 2, false);
+        scene4.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene5.CrossFadeAlpha(1f, tempsDuFondu, false);
 
     }
     void fadeout5()
     {
-        scene5.CrossFadeAlpha(-1f, 2, false);
+        scene5.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene6.CrossFadeAlpha(1f, tempsDuFondu, false);
 
     }
     void fadeout6()
     {
-        scene6.CrossFadeAlpha(-1f, 2, false);
+        scene6.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene7.CrossFadeAlpha(1f, tempsDuFondu, false);
 
     }
     void fadeout7()
     {
-        scene7.CrossFadeAlpha(-1f, 2, false);
+        scene7.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene8.CrossFadeAlpha(1f, tempsDuFondu, false);
 
     }
     void fadeout8()
     {
-        scene8.CrossFadeAlpha(-1f, 2, false);
+        scene8.CrossFadeAlpha(-1f, tempsDuFondu, false);
+        scene9.CrossFadeAlpha(1f, tempsDuFondu, false);
 
     }
+    
 }
