@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2024619901}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.18304852, g: 0.22647189, b: 0.29360598, a: 1}
+>>>>>>> 557c461661b1dcea56c12504f12249106ffba9e2
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -50,7 +54,7 @@ LightmapSettings:
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
@@ -96,7 +100,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 644dd2d643dc4df4eb7e7497761a2bba,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -5639,7 +5644,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5672,7 +5677,11 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
+<<<<<<< HEAD
   m_BounceIntensity: 1.49
+=======
+  m_BounceIntensity: 1.5
+>>>>>>> 557c461661b1dcea56c12504f12249106ffba9e2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: -0.00000056176066, z: -0.06305939, w: -0.9980099}
@@ -5686,6 +5695,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024619900}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.9977094, y: -0, z: -0, w: 0.067645706}
   m_LocalPosition: {x: 0, y: 3.7, z: 11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5693,6 +5703,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 172.242, y: -0.000015258789, z: -0.000015258789}
+=======
+  m_LocalRotation: {x: -0.031748734, y: 0.9678731, z: -0.18958561, w: -0.16208376}
+  m_LocalPosition: {x: 0, y: 9.9, z: 11.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 22.165, y: 199.01399, z: 0}
+>>>>>>> 557c461661b1dcea56c12504f12249106ffba9e2
 --- !u!1 &2070546219
 GameObject:
   m_ObjectHideFlags: 0
