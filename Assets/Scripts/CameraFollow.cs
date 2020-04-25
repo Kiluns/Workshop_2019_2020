@@ -16,11 +16,14 @@ public class CameraFollow : MonoBehaviour
         transform.position = smoothedPosition;
 
         transform.LookAt(target);
-                
-    }
 
+        transform.localEulerAngles += offsetRotation;
+
+    }
+    /*
     void LateFixedUpdate()
     {
         transform.localEulerAngles += offsetRotation;
     }
+    */
 }
