@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 74846479}
   - component: {fileID: 74846478}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Scrolling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

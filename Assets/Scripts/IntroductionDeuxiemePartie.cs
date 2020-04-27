@@ -14,12 +14,12 @@ public class IntroductionDeuxiemePartie : MonoBehaviour
         if (up)
         {
             print("move up");
-            transform.position += transform.up * Time.deltaTime * speed;
+            transform.position -= transform.up * Time.deltaTime * speed;
         }
         if (down)
         {
             print("move down");
-            transform.position -= transform.up * Time.deltaTime * speed;
+            transform.position += transform.up * Time.deltaTime * speed;
         }
     }
     void OnGUI()
