@@ -5,10 +5,12 @@ using UnityEngine;
 public class activateOutline : MonoBehaviour
 {
     public GameObject targetToOutline;
+    public GameObject ZeroManager;
 
     private float smoothOutline = 0f;
     private float smoothDesactiveOutline = 6f;
 
+    private bool isTriggered;
     private bool activeSmoothOutline;
     private bool desactiveSmoothOutline;
 
@@ -24,9 +26,9 @@ public class activateOutline : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isTriggered = true;
             activeSmoothOutline = true;
             desactiveSmoothOutline = false;
-            
         }
     }
 
@@ -34,9 +36,9 @@ public class activateOutline : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isTriggered = false;
             activeSmoothOutline = false;
             desactiveSmoothOutline = true;
-            Debug.Log("oui");
         }
     }
     
@@ -47,6 +49,25 @@ public class activateOutline : MonoBehaviour
     
     void Update()
     {
+
+        if(isTriggered && Input.GetKeyDown(KeyCode.Space))
+        {
+            if (this.name == "TriggerCanape")
+                ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
+            if (this.name == "TriggerFrigo")
+                ZeroManager.GetComponent<UnInteractionManager>().isFrigo = false;
+            if (this.name == "TriggerTele")
+                ZeroManager.GetComponent<UnInteractionManager>().isTV = false;
+            if (this.name == "TriggerTelephone")
+                ZeroManager.GetComponent<UnInteractionManager>().isTelephone = false;
+            if (this.name == "TriggerMiroir")
+                ZeroManager.GetComponent<UnInteractionManager>().isMiroir = false;
+            if (this.name == "TriggerFenetre")
+                ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
+            if (this.name == "TriggerCadres")
+                ZeroManager.GetComponent<UnInteractionManager>().isCadres = false;
+
+        }
 
         if (activeSmoothOutline)
         {

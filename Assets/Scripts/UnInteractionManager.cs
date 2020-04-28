@@ -1,18 +1,92 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class UnInteractionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject TV;
+    public GameObject Canape;
+    public GameObject Miroir;
+    public GameObject Cadres;
+    public GameObject Frigo;
+    public GameObject Telephone;
+    public GameObject Fenetre;
+
+    public bool isFinish;
+    public bool isTV;
+    public bool isCanape;
+    public bool isMiroir;
+    public bool isCadres;
+    public bool isFrigo;
+    public bool isTelephone;
+    public bool isFenetre;
+
+
+
     void Start()
     {
-        
+        isTV = true;
+        isCanape = true;
+        isMiroir = true;
+        isCadres = true;
+        isFrigo = true;
+        isTelephone = true;
+        isFenetre = true;
+
+        isFinish = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!isCanape && !isFrigo)
+            isFinish = true;
+        /*
+        if(isFinish)
+            SceneManager.LoadScene(4);
+        */
+        if (!isTV)
+        {
+            TV.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            TV.GetComponent<activateOutline>().enabled = false;
+        }
+
+        if (!isCanape)
+        {
+            Canape.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            Canape.GetComponent<activateOutline>().enabled = false;
+        }
+
+        if (!isMiroir)
+        {
+            Miroir.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            Miroir.GetComponent<activateOutline>().enabled = false;
+        }
+
+        if (!isCadres)
+        {
+            Cadres.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            Cadres.GetComponent<activateOutline>().enabled = false;
+        }
+
+        if (!isFrigo)
+        {
+            Frigo.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            Frigo.GetComponent<activateOutline>().enabled = false;
+        }
+
+        if (!isTelephone)
+        {
+            Telephone.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            Telephone.GetComponent<activateOutline>().enabled = false;
+        }
+
+        if (!isFenetre)
+        {
+            Fenetre.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+            Fenetre.GetComponent<activateOutline>().enabled = false;
+        }
+
     }
 }
