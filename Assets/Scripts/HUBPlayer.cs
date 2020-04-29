@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class HUBPlayer : MonoBehaviour
 {
+    public Animator anim;
     public float Speed = 1.5f;
     private bool isFlipped;
 
     void Start()
     {
         isFlipped = false;
+    }
+
+    void Update()
+    {
+        anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
     }
 
     void FixedUpdate()
@@ -19,7 +25,7 @@ public class HUBPlayer : MonoBehaviour
             if (!isFlipped)
             {
                 isFlipped = true;
-                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
             transform.Translate(Speed * Time.deltaTime, 0f, 0f);
         }
@@ -28,7 +34,7 @@ public class HUBPlayer : MonoBehaviour
             if (isFlipped)
             {
                 isFlipped = false;
-                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
             }
             transform.Translate(-Speed * Time.deltaTime, 0f, 0f);
         }
