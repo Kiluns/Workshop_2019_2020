@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArmoireCle : MonoBehaviour
 {
     public Animator AnimPorte;
+    public GameObject Level01Manager;
 
     private bool peutOuvrir = false;
     private bool cleeRecuperer = false;
@@ -26,20 +27,25 @@ public class ArmoireCle : MonoBehaviour
     //On refuse au joueur l'intéraction hors du trigger.
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             peutOuvrir = false;
         }
     }
 
     //Appelée dans l'update, permet l'interaction, conditions vérifiée seulement dans le trigger.
-    //L'obtention de la clée est dans le script PorteArmoireCle et est un AnimEvent.
     private void Interaction()
     {
-        if(peutOuvrir == true && cleeRecuperer == false && Input.GetKeyDown("e"))
+        if (peutOuvrir == true && cleeRecuperer == false && Input.GetKeyDown("e"))
         {
             AnimPorte.SetTrigger("Interagis");
             cleeRecuperer = true;
         }
+    }
+
+    //Obtention de la clee, appelée en animEvent.
+    public void ObtiensClee()
+    {
+        Level01Manager.GetComponent<Journee01Manager>().possedeCle = true;
     }
 }
