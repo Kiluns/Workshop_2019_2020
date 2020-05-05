@@ -7,7 +7,7 @@ public class Journee01Manager : MonoBehaviour
     public bool possedeCle = false;
 
     public GameObject cleUI;
-    
+
     // Update is called once per frame
     void Update()
     {
