@@ -18,19 +18,23 @@ public class Menu : MonoBehaviour
     bool blcredit = false;
     bool bljouer = false;
 
-
-    // Update is called once per frame
+    void Awake()
+    {
+        option = GameObject.FindWithTag("Option");
+        option.SetActive(false);
+        myClip = GameObject.FindWithTag("MainCamera").GetComponent<AudioSource>();
+    }
     void Update()
     {
         if (ReadyToLoad == true && !myClip.isPlaying)
         {
             if (bljouer)
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
 
             if (bloption)
             {
-                menu.SetActive(false);
-                option.SetActive(true);
+                option.SetActive(true); 
+                menu.SetActive(false);                
                 bloption = false;
             }
 
@@ -45,17 +49,9 @@ public class Menu : MonoBehaviour
             {
                 menu.SetActive(false);
                 controle.SetActive(true);
-                blmenu = false;
-                
-            if (blmenu)
-            {
-                    menu.SetActive(true);
-                    credit.SetActive(false);
-                    option.SetActive(false);
-                    controle.SetActive(false);
-                    blcredit = false;
-                }
-            }
+                blcredit = false;
+            }             
+            
 
         }
     }
@@ -84,12 +80,7 @@ public class Menu : MonoBehaviour
         ReadyToLoad = true;
         blcredit = true;
     }
-    public void BoutonMenu()
-    {
-        myClip.Play(0);
-        ReadyToLoad = true;
-        blmenu = true;
-    }
+    
     public void BoutonQuitter()
     {
         Application.Quit();
