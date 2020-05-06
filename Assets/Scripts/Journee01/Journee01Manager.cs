@@ -7,6 +7,8 @@ public class Journee01Manager : MonoBehaviour
     public bool possedeCle = false;
 
     public GameObject cleUI;
+    public GameObject porteFinPremierCouloir;
+    public GameObject porteFermeeCle;
 
     // Update is called once per frame
     void Update()
@@ -15,9 +17,11 @@ public class Journee01Manager : MonoBehaviour
         if (possedeCle == true)
         {
             cleUI.SetActive(true);
+            porteFermeeCle.GetComponent<Porte>().fermeeACle = false;
         }
-        //Si clé retirée : disparition de l'image dans l'UI.
-        else
+
+        //retire la clé de l'UI.
+        if(porteFermeeCle.GetComponent<Porte>().cleUtilisee == true)
         {
             cleUI.SetActive(false);
         }

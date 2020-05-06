@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ArmoireCle : MonoBehaviour
 {
-    public Animator AnimPorte;
-    public GameObject Level01Manager;
+    public Animator animPorte;
+    public GameObject level01Manager;
+    public GameObject cle;
 
     private bool peutOuvrir = false;
     private bool cleeRecuperer = false;
@@ -38,14 +39,15 @@ public class ArmoireCle : MonoBehaviour
     {
         if (peutOuvrir == true && cleeRecuperer == false && Input.GetKeyDown("e"))
         {
-            AnimPorte.SetTrigger("Interagis");
+            animPorte.SetTrigger("Interagis");
             cleeRecuperer = true;
+            Destroy(cle);
         }
     }
 
     //Obtention de la clee, appelée en animEvent.
     public void ObtiensClee()
     {
-        Level01Manager.GetComponent<Journee01Manager>().possedeCle = true;
+        level01Manager.GetComponent<Journee01Manager>().possedeCle = true;
     }
 }
