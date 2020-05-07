@@ -14,13 +14,21 @@ public class UnInteractionManager : MonoBehaviour
     public GameObject Telephone;
     public GameObject Fenetre;
 
+    [HideInInspector]
     public bool isFinish;
+    [HideInInspector]
     public bool isTV;
+    [HideInInspector]
     public bool isCanape;
+    [HideInInspector]
     public bool isMiroir;
+    [HideInInspector]
     public bool isCadres;
+    [HideInInspector]
     public bool isFrigo;
+    [HideInInspector]
     public bool isTelephone;
+    [HideInInspector]
     public bool isFenetre;
 
 
