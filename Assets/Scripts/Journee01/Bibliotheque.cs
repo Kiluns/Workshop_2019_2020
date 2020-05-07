@@ -12,7 +12,7 @@ public class Bibliotheque : MonoBehaviour
         {
             if(peutTomber)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 11; i++)
                 {
                     Rigidbody rbLivre;
                     rbLivre = transform.GetChild(i).GetComponent<Rigidbody>();
