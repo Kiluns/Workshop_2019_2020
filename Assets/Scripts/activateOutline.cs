@@ -29,6 +29,8 @@ public class activateOutline : MonoBehaviour
             isTriggered = true;
             activeSmoothOutline = true;
             desactiveSmoothOutline = false;
+            other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = true;
+            //other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isJustActivated += 1;
         }
     }
 
@@ -39,6 +41,8 @@ public class activateOutline : MonoBehaviour
             isTriggered = false;
             activeSmoothOutline = false;
             desactiveSmoothOutline = true;
+            other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = false;
+            //other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isJustActivated += 1;
         }
     }
     
