@@ -10939,7 +10939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  isJustActivated: 0
   coolDownTimeOn: 1
   coolDownTimeOff: 0.5
 --- !u!1 &908742515
@@ -12529,7 +12528,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7866788130d881e4b9eac9acb7593e2a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.699646
+      value: 37.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7866788130d881e4b9eac9acb7593e2a,
         type: 3}
@@ -15050,6 +15049,7 @@ GameObject:
   - component: {fileID: 1321541848}
   - component: {fileID: 1321541847}
   - component: {fileID: 1321541846}
+  - component: {fileID: 1321541849}
   m_Layer: 0
   m_Name: Perso
   m_TagString: Player
@@ -15119,10 +15119,10 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11.41, y: 19.2}
+  m_Size: {x: 0.84, y: 4.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1321541848
@@ -15134,11 +15134,23 @@ Transform:
   m_GameObject: {fileID: 1321541845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.188, z: 0}
-  m_LocalScale: {x: 0.62033385, y: 0.62033385, z: 0.62033385}
+  m_LocalScale: {x: 0.62033385, y: 0.6203339, z: 0.62033385}
   m_Children: []
   m_Father: {fileID: 1618369219}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321541849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321541845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a4b739813a26c4a9f34e9431d615a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1322506661
 GameObject:
   m_ObjectHideFlags: 0
