@@ -25,7 +25,6 @@ public class BlinkFeedback : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isActive);
         if (Time.time >= nextIterationTime && isActive)
         {
             if (isOn)

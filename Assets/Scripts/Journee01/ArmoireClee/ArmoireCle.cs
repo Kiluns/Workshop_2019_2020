@@ -17,20 +17,22 @@ public class ArmoireCle : MonoBehaviour
     }
 
     //On autorise le joueur à interagir dans le trigger.
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             peutOuvrir = true;
+            transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = true;
         }
     }
 
     //On refuse au joueur l'intéraction hors du trigger.
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             peutOuvrir = false;
+            transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }
     }
 

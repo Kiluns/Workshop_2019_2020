@@ -40,20 +40,22 @@ public class Porte : MonoBehaviour
     }
 
     //On autorise le joueur à interagir dans le trigger.
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             dansTrigger = true;
+            transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = true;
         }
     }
 
     //On refuse au joueur l'intéraction hors du trigger.
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             dansTrigger = false;
+            transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }
     }
 }
