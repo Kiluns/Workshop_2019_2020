@@ -10,7 +10,8 @@ public class HUBPlayer : MonoBehaviour
 
     void Start()
     {
-        isFlipped = false;
+        isFlipped = true;
+        transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
     }
 
     void Update()
