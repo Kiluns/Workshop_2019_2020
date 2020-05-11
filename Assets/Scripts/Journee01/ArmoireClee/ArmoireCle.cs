@@ -43,7 +43,7 @@ public class ArmoireCle : MonoBehaviour
         {
             animPorte.SetTrigger("Interagis");
             cleeRecuperer = true;
-            Destroy(cle);
+            transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }
     }
 
@@ -51,5 +51,6 @@ public class ArmoireCle : MonoBehaviour
     public void ObtiensClee()
     {
         level01Manager.GetComponent<Journee01Manager>().possedeCle = true;
+        Destroy(cle);
     }
 }
