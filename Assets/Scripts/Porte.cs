@@ -45,7 +45,7 @@ public class Porte : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             dansTrigger = true;
-            transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = true;
+            transform.GetChild(1).gameObject.transform.GetComponentInChildren<BlinkFeedback>().isActive = true;
         }
     }
 
@@ -55,7 +55,7 @@ public class Porte : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             dansTrigger = false;
-            transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = false;
+            transform.GetChild(1).gameObject.transform.GetComponentInChildren<BlinkFeedback>().isActive = false;
         }
     }
 }
