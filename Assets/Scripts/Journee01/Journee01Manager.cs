@@ -5,6 +5,7 @@ using UnityEngine;
 public class Journee01Manager : MonoBehaviour
 {
     public bool possedeCle = false;
+    public bool placementArmoiresdecide = false;
 
     public GameObject cleUI;
     public GameObject porteFinPremierCouloir;

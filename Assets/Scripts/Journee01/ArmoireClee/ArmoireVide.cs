@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmoireCle : MonoBehaviour
+public class ArmoireVide : MonoBehaviour
 {
     public Animator animPorte;
-    public GameObject level01Manager;
-    public GameObject cle;
 
     private bool peutOuvrir = false;
-    private bool cleeRecuperer = false;
+    private bool ouvert;
 
     private void Update()
     {
@@ -22,7 +20,7 @@ public class ArmoireCle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             peutOuvrir = true;
-            if(cleeRecuperer == false)
+            if(ouvert == false)
             {
                 transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = true;
             }
@@ -42,18 +40,11 @@ public class ArmoireCle : MonoBehaviour
     //Appelée dans l'update, permet l'interaction, conditions vérifiée seulement dans le trigger.
     private void Interaction()
     {
-        if (peutOuvrir == true && cleeRecuperer == false && Input.GetKeyDown("e"))
+        if (peutOuvrir == true && ouvert == false && Input.GetKeyDown("e"))
         {
             animPorte.SetTrigger("Interagis");
-            cleeRecuperer = true;
+            ouvert = true;
             transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }
-    }
-
-    //Obtention de la clee, appelée en animEvent.
-    public void ObtiensClee()
-    {
-        level01Manager.GetComponent<Journee01Manager>().possedeCle = true;
-        Destroy(cle);
     }
 }
