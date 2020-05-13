@@ -7,6 +7,7 @@ public class activateOutline : MonoBehaviour
     public GameObject targetToOutline;
     public GameObject ZeroManager;
     public GameObject IllusManager;
+    public GameObject Player;
 
     private float smoothOutline = 0f;
     private float smoothDesactiveOutline = 6f;
@@ -17,6 +18,7 @@ public class activateOutline : MonoBehaviour
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         activeSmoothOutline = false;
         desactiveSmoothOutline = false;
         targetToOutline.GetComponent<Outline>().enabled = false;
@@ -59,15 +61,17 @@ public class activateOutline : MonoBehaviour
         {
             if (this.name == "TriggerCanape")
             {
+                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
                 ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 3;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 4;
                 IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
             }
 
             if (this.name == "TriggerFrigo")
             {
+                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
                 ZeroManager.GetComponent<UnInteractionManager>().isFrigo = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 0;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 1;
                 IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
             }
 
@@ -79,20 +83,27 @@ public class activateOutline : MonoBehaviour
 
             if (this.name == "TriggerMiroir")
             {
+                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
                 ZeroManager.GetComponent<UnInteractionManager>().isMiroir = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 5;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 6;
                 IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
             }
 
             if (this.name == "TriggerFenetre")
             {
+                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
                 ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 6;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 7;
                 IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
             }
 
             if (this.name == "TriggerCadres")
+            {
+                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
                 ZeroManager.GetComponent<UnInteractionManager>().isCadres = false;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 5;
+                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+            }
 
         }
 

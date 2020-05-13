@@ -6,18 +6,20 @@ using UnityEngine.UI;
 public class IlluInteraction : MonoBehaviour
 {
     // myIllu représente le numéro de l'illu à afficher : 
-    //       0 - Frigo
-    //       1 - Téléphone
-    //       2 - Télé
-    //       3 - Canapé
-    //       4 - Cadres
-    //       5 - Miroir
-    //       6 - Fenêtre
-    //       7 - Ecran Noir
+    //       1 - Frigo
+    //       2 - Téléphone
+    //       3 - Télé
+    //       4 - Canapé
+    //       5 - Cadres
+    //       6 - Miroir
+    //       7 - Fenêtre
+    //       8 - Ecran Noir
 
     [HideInInspector]
     public int myIllu = 0;
-
+    [HideInInspector]
+    public GameObject Player;
+    [HideInInspector]
     public bool isInteracting;
 
     private float myTime = 0f;
@@ -32,8 +34,9 @@ public class IlluInteraction : MonoBehaviour
         neverDone = true;
         nneverDone = true;
         nnneverDone = true;
-        transform.GetChild(7).gameObject.SetActive(true);
-        transform.GetChild(7).GetComponent<Image>().canvasRenderer.SetAlpha(-1f);
+        transform.GetChild(8).gameObject.SetActive(true);
+        transform.GetChild(8).GetComponent<Image>().canvasRenderer.SetAlpha(-1f);
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -58,6 +61,7 @@ public class IlluInteraction : MonoBehaviour
 
                 if (nneverDone)
                 {
+                    transform.GetChild(0).gameObject.SetActive(true);
                     transform.GetChild(myIllu).gameObject.SetActive(true);
                     BlackCrossFadeOUT();
                     myTime = Time.time + 4f;
@@ -67,11 +71,13 @@ public class IlluInteraction : MonoBehaviour
                 if (Time.time >= myTime && !nnneverDone)
                 {
                     transform.GetChild(myIllu).gameObject.SetActive(false);
+                    transform.GetChild(0).gameObject.SetActive(false);
                     BlackCrossFadeOUT();
                     isInteracting = false;
                     neverDone = true;
                     nneverDone = true;
                     nnneverDone = true;
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = true;
                 }
             }
         }
@@ -79,11 +85,11 @@ public class IlluInteraction : MonoBehaviour
 
     private void BlackCrossFadeIN()
     {
-        transform.GetChild(7).GetComponent<Image>().CrossFadeAlpha(1, 1.0f, false);
+        transform.GetChild(8).GetComponent<Image>().CrossFadeAlpha(1, 1.0f, false);
     }
 
     private void BlackCrossFadeOUT()
     {
-        transform.GetChild(7).GetComponent<Image>().CrossFadeAlpha(-1, 1.0f, false);
+        transform.GetChild(8).GetComponent<Image>().CrossFadeAlpha(-1, 1.0f, false);
     }
 }

@@ -5,11 +5,13 @@ using UnityEngine;
 public class HUBPlayer : MonoBehaviour
 {
     public Animator anim;
+    public bool isWalkEnable;
     public float Speed = 1.5f;
     private bool isFlipped;
 
     void Start()
     {
+        isWalkEnable = true;
         isFlipped = true;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
     }
@@ -21,7 +23,7 @@ public class HUBPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Q) && transform.position.x < 6.45f)
+        if (isWalkEnable && Input.GetKey(KeyCode.Q) && transform.position.x < 6.45f)
         {
             if (!isFlipped)
             {
@@ -30,7 +32,7 @@ public class HUBPlayer : MonoBehaviour
             }
             transform.Translate(Speed * Time.deltaTime, 0f, 0f);
         }
-        if (Input.GetKey(KeyCode.D) && transform.position.x > -5.5f)
+        if (isWalkEnable && Input.GetKey(KeyCode.D) && transform.position.x > -5.5f)
         {
             if (isFlipped)
             {
