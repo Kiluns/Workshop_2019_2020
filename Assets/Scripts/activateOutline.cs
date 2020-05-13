@@ -6,6 +6,7 @@ public class activateOutline : MonoBehaviour
 {
     public GameObject targetToOutline;
     public GameObject ZeroManager;
+    public GameObject IllusManager;
 
     private float smoothOutline = 0f;
     private float smoothDesactiveOutline = 6f;
@@ -54,20 +55,42 @@ public class activateOutline : MonoBehaviour
     void Update()
     {
 
-        if(isTriggered && Input.GetKeyDown(KeyCode.Space))
+        if(isTriggered && Input.GetKeyDown(KeyCode.E))
         {
             if (this.name == "TriggerCanape")
+            {
                 ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 3;
+                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+            }
+
             if (this.name == "TriggerFrigo")
+            {
                 ZeroManager.GetComponent<UnInteractionManager>().isFrigo = false;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 0;
+                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+            }
+
             if (this.name == "TriggerTele")
                 ZeroManager.GetComponent<UnInteractionManager>().isTV = false;
+
             if (this.name == "TriggerTelephone")
                 ZeroManager.GetComponent<UnInteractionManager>().isTelephone = false;
+
             if (this.name == "TriggerMiroir")
+            {
                 ZeroManager.GetComponent<UnInteractionManager>().isMiroir = false;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 5;
+                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+            }
+
             if (this.name == "TriggerFenetre")
+            {
                 ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
+                IllusManager.GetComponent<IlluInteraction>().myIllu = 6;
+                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+            }
+
             if (this.name == "TriggerCadres")
                 ZeroManager.GetComponent<UnInteractionManager>().isCadres = false;
 

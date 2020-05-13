@@ -95,6 +95,5 @@ public class UnInteractionManager : MonoBehaviour
             Fenetre.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
             Fenetre.GetComponent<activateOutline>().enabled = false;
         }
-
     }
 }
