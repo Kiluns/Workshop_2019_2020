@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Colorful;
 using UnityStandardAssets;
 
@@ -60,6 +61,7 @@ public class Journee01Manager : MonoBehaviour
         //Retourne la caméra à son êtat original et la vitesse du joueur
         if(porteFin.GetComponent<Porte>().aEssayerOuvrir == true)
         {
+            mannequin.GetComponent<Mannequin>().porteNonOuverte = false;
             playerCamera.GetComponent<Wiggle>().enabled = false;
             playerCamera.GetComponent<DoubleVision>().enabled = false;
             playerCamera.GetComponent<BilateralGaussianBlur>().enabled = false;
@@ -69,6 +71,22 @@ public class Journee01Manager : MonoBehaviour
             playerController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = controllerRunSpeed;
             porteFin.GetComponent<Porte>().fermeeACle = false;
         }
+
+        if(mannequin.GetComponent<Mannequin>().joueurAttrape == true)
+        {
+            porteFin.GetComponent<Porte>().aEssayerOuvrir = true;
+        }
+
+        if(porteFin.GetComponent<Porte>().cleUtilisee == true)
+        {
+            FinLevel();
+        }
+    }
+
+    //Est lancé par animevent dans le canvas.
+    public void FinLevel()
+    {
+        SceneManager.LoadScene(3);
     }
 
     private void OnTriggerEnter(Collider other)
