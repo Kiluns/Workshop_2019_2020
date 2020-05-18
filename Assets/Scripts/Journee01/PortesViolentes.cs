@@ -6,9 +6,12 @@ public class PortesViolentes : MonoBehaviour
 {
     public GameObject porteLiee; //Porte à la fin du couloir.
     public Animator portesViolentesAnim; //Animator de l'objet.
+    public AudioSource ouvertureSFX;
+    public AudioSource fermetureSFX;
 
     private bool dansTrigger = false;
     private bool enAnimation = false;
+    private bool ouvertureSFXjouee = false;
 
     private void Update()
     {
@@ -25,6 +28,11 @@ public class PortesViolentes : MonoBehaviour
         if(porteLiee.GetComponent<Porte>().aEssayerOuvrir == true)
         {
             portesViolentesAnim.SetTrigger("Ouverture");
+            if(!ouvertureSFX.isPlaying && ouvertureSFXjouee == false)
+            {
+                ouvertureSFX.Play(0);
+                ouvertureSFXjouee = true;
+            }
         }
     }
 
@@ -32,6 +40,12 @@ public class PortesViolentes : MonoBehaviour
     public void ResetEnAnimation()
     {
         enAnimation = false;
+    }
+
+    //Appelée en AnimEvent
+    public void PlayFermetureSFX()
+    {
+        fermetureSFX.Play(0);
     }
 
     //Appelée en AnimEvent dans l'ouverture pour ouvrir la porte à la fin du couloir.

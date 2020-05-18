@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tiroirs : MonoBehaviour
 {
     public Animator animTiroir;
+    public AudioSource ouvertureSFX;
 
     private bool peutOuvrir = false;
     private bool ouvert;
@@ -44,6 +45,10 @@ public class Tiroirs : MonoBehaviour
         if (peutOuvrir == true && ouvert == false && Input.GetKeyDown("e"))
         {
             animTiroir.SetTrigger("Ouverture");
+            if(!ouvertureSFX.isPlaying)
+            {
+                ouvertureSFX.Play(0);
+            }
             ouvert = true;
             transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }

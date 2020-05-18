@@ -5,6 +5,8 @@ using UnityEngine;
 public class ArmoireCle : MonoBehaviour
 {
     public Animator animPorte;
+    public AudioSource cleSFX;
+    public AudioSource ouvertureSFX;
     public GameObject level01Manager;
     public GameObject cle;
 
@@ -45,6 +47,10 @@ public class ArmoireCle : MonoBehaviour
         if (peutOuvrir == true && cleeRecuperer == false && Input.GetKeyDown("e"))
         {
             animPorte.SetTrigger("Interagis");
+            if(!ouvertureSFX.isPlaying)
+            {
+                ouvertureSFX.Play(0);
+            }
             cleeRecuperer = true;
             transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }
@@ -54,6 +60,10 @@ public class ArmoireCle : MonoBehaviour
     public void ObtiensClee()
     {
         level01Manager.GetComponent<Journee01Manager>().possedeCle = true;
+        if(!cleSFX.isPlaying)
+        {
+            cleSFX.Play(0);
+        }
         Destroy(cle);
     }
 }

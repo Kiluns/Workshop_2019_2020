@@ -5,6 +5,8 @@ using UnityEngine;
 public class Porte : MonoBehaviour
 {
     public Animator porteAnim;
+    public AudioSource ouvertureSFX;
+    public AudioSource fermetureSFX;
 
     public bool fermeeACle = false; //est référencé dans managerJournee01.
     public bool cleUtilisee = false; //est référencé dans managerJournee01.
@@ -24,6 +26,10 @@ public class Porte : MonoBehaviour
             porteAnim.SetTrigger("Ouverture");
             enAnimation = true;
             cleUtilisee = true;
+            if(!ouvertureSFX.isPlaying)
+            {
+                ouvertureSFX.Play(0);
+            }
         }
         else if(Input.GetKeyDown("e") && fermeeACle == true && dansTrigger == true && enAnimation == false)
         {
@@ -37,6 +43,11 @@ public class Porte : MonoBehaviour
     public void ResetEnAnimation()
     {
         enAnimation = false;
+    }
+
+    public void PlayFermetureSFX()
+    {
+        fermetureSFX.Play(0);
     }
 
     //On autorise le joueur à interagir dans le trigger.

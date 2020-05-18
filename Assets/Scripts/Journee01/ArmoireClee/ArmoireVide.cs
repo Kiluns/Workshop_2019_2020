@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArmoireVide : MonoBehaviour
 {
     public Animator animPorte;
+    public AudioSource ouvertureSFX;
 
     private bool peutOuvrir = false;
     private bool ouvert;
@@ -43,6 +44,10 @@ public class ArmoireVide : MonoBehaviour
         if (peutOuvrir == true && ouvert == false && Input.GetKeyDown("e"))
         {
             animPorte.SetTrigger("Interagis");
+            if (!ouvertureSFX.isPlaying)
+            {
+                ouvertureSFX.Play(0);
+            }
             ouvert = true;
             transform.GetChild(0).gameObject.GetComponent<BlinkFeedback>().isActive = false;
         }

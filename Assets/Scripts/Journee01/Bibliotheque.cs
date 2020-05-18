@@ -6,6 +6,8 @@ public class Bibliotheque : MonoBehaviour
 {
     bool peutTomber = true;
 
+    public AudioSource livreSX;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -17,6 +19,7 @@ public class Bibliotheque : MonoBehaviour
                     Rigidbody rbLivre;
                     rbLivre = transform.GetChild(i).GetComponent<Rigidbody>();
                     rbLivre.AddForce(-100f, 0f, 0f);
+                    livreSX.Play(0);
                 }
                 peutTomber = false;
             }

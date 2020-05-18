@@ -13,6 +13,7 @@ public class Mannequin : MonoBehaviour
     public GameObject mannequinAllonge;
     public GameObject pannel;
     public GameObject mannequinhead;
+    public AudioSource poursuiteOST;
 
     private Transform target;
 
@@ -27,12 +28,20 @@ public class Mannequin : MonoBehaviour
         {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            if(!poursuiteOST.isPlaying)
+            {
+                poursuiteOST.Play(0);
+            }
         }
         if (porteNonOuverte == false)
         {
             gameObject.SetActive(false);
             mannequinAllonge.transform.position = new Vector3(transform.position.x, 1.747f, transform.position.z);
             mannequinAllonge.SetActive(true);
+            if(poursuiteOST.isPlaying)
+            {
+                poursuiteOST.Stop();
+            }
         }
     }
 
