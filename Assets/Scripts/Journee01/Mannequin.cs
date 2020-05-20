@@ -14,18 +14,21 @@ public class Mannequin : MonoBehaviour
     public GameObject pannel;
     public GameObject mannequinhead;
     public AudioSource poursuiteOST;
+    public BoxCollider trigger;
 
     private Transform target;
 
     private void Start()
     {
         target = playerController.GetComponent<Transform>();
+        trigger = gameObject.GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
         if (levelManager.GetComponent<Journee01Manager>().startMannequin == true && porteNonOuverte == true)
         {
+            trigger.enabled = true;
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
             if(!poursuiteOST.isPlaying)
