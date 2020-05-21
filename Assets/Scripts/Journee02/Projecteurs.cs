@@ -5,12 +5,18 @@ using UnityEngine;
 public class Projecteurs : MonoBehaviour
 {
     public GameObject mur;
+    public GameObject effetMur; //prefab pour l'arrêt de la projection.
+
+    private Animator projecteurAnim;
+    private AudioSource projectionSound;
 
     private bool dansTrigger = false;
     public bool murActive = true;
 
     private void Start()
     {
+        projecteurAnim = gameObject.GetComponent<Animator>();
+        projectionSound = gameObject.GetComponent<AudioSource>();
         EtatDuMur();
     }
 
@@ -23,14 +29,30 @@ public class Projecteurs : MonoBehaviour
     {
         if(Input.GetKeyDown("e") && dansTrigger == true && murActive == true)
         {
-            mur.SetActive(false);
-            murActive = false;
+            projecteurAnim.SetTrigger("Desactivation");
         }
         else if(Input.GetKeyDown("e") && dansTrigger == true && murActive == false)
         {
-            mur.SetActive(true);
-            murActive = true;
+            projecteurAnim.SetTrigger("Activation");
         }
+    }
+
+    //Appellé en AnimEvent.
+    private void ActiveMur()
+    {
+        mur.SetActive(true);
+        projectionSound.Play(0);
+        murActive = true;
+    }
+
+    //Appellé en AnimEvent.
+    private void DesactiveMur()
+    {
+        Destroy(Instantiate(effetMur), 3.5f);
+        effetMur.transform.position = new Vector3(mur.transform.position.x, mur.transform.position.y, mur.transform.position.z);
+        mur.SetActive(false);
+        projectionSound.Stop();
+        murActive = false;
     }
 
     //On check et applique l'état correcte au mur.
@@ -39,10 +61,14 @@ public class Projecteurs : MonoBehaviour
         if(murActive == true)
         {
             mur.SetActive(true);
+            projecteurAnim.SetTrigger("Activation");
+            projectionSound.Play(0);
         }
         else if(murActive == false)
         {
             mur.SetActive(false);
+            projecteurAnim.SetTrigger("Desactivation");
+            projectionSound.Stop();
         }
     }
 
