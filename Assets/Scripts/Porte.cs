@@ -11,6 +11,7 @@ public class Porte : MonoBehaviour
     public bool fermeeACle = false; //est référencé dans managerJournee01.
     public bool cleUtilisee = false; //est référencé dans managerJournee01.
     public bool aEssayerOuvrir = false; //est référencé quand on a besoin de déclencher quelque chose après avoir essayer d'ouvrir une porte
+    public bool resteOuverte = false;
     private bool dansTrigger = false;
     private bool enAnimation = false;
 
@@ -21,7 +22,7 @@ public class Porte : MonoBehaviour
 
     private void Interaction()
     {
-        if(Input.GetKeyDown("e") && fermeeACle == false && dansTrigger == true && enAnimation == false)
+        if(Input.GetKeyDown("e") && fermeeACle == false && dansTrigger == true && enAnimation == false && resteOuverte == false)
         {
             porteAnim.SetTrigger("Ouverture");
             enAnimation = true;
@@ -36,6 +37,16 @@ public class Porte : MonoBehaviour
             porteAnim.SetTrigger("Fermee");
             aEssayerOuvrir = true;
             enAnimation = true;
+        }
+        else if (Input.GetKeyDown("e") && fermeeACle == false && dansTrigger == true && enAnimation == false && resteOuverte == true)
+        {
+            porteAnim.SetTrigger("OuvertureDefinitive");
+            enAnimation = true;
+            cleUtilisee = true;
+            if (!ouvertureSFX.isPlaying)
+            {
+                ouvertureSFX.Play(0);
+            }
         }
     }
 
