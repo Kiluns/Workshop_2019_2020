@@ -17,6 +17,9 @@ public class Projecteurs : MonoBehaviour
     {
         projecteurAnim = gameObject.GetComponent<Animator>();
         projectionSound = gameObject.GetComponent<AudioSource>();
+        effetMur.transform.position = new Vector3(mur.transform.position.x, mur.transform.position.y, mur.transform.position.z);
+        effetMur.transform.rotation = new Quaternion(mur.transform.rotation.x, mur.transform.rotation.y, mur.transform.rotation.z, mur.transform.rotation.w);
+        effetMur.transform.localScale = new Vector3(mur.transform.localScale.x, mur.transform.localScale.y, mur.transform.localScale.z);
         EtatDuMur();
     }
 
@@ -50,6 +53,8 @@ public class Projecteurs : MonoBehaviour
     {
         Destroy(Instantiate(effetMur), 3.5f);
         effetMur.transform.position = new Vector3(mur.transform.position.x, mur.transform.position.y, mur.transform.position.z);
+        effetMur.transform.rotation = new Quaternion(mur.transform.rotation.x, mur.transform.rotation.y, mur.transform.rotation.z, mur.transform.rotation.w);
+        effetMur.transform.localScale = new Vector3(mur.transform.localScale.x, mur.transform.localScale.y, mur.transform.localScale.z);
         mur.SetActive(false);
         projectionSound.Stop();
         murActive = false;
