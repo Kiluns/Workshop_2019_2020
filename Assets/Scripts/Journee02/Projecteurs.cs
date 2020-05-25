@@ -17,9 +17,7 @@ public class Projecteurs : MonoBehaviour
     {
         projecteurAnim = gameObject.GetComponent<Animator>();
         projectionSound = gameObject.GetComponent<AudioSource>();
-        effetMur.transform.position = new Vector3(mur.transform.position.x, mur.transform.position.y, mur.transform.position.z);
-        effetMur.transform.rotation = new Quaternion(mur.transform.rotation.x, mur.transform.rotation.y, mur.transform.rotation.z, mur.transform.rotation.w);
-        effetMur.transform.localScale = new Vector3(mur.transform.localScale.x, mur.transform.localScale.y, mur.transform.localScale.z);
+        effetMur.transform.localScale = mur.transform.localScale;
         EtatDuMur();
     }
 
@@ -33,14 +31,15 @@ public class Projecteurs : MonoBehaviour
         if(Input.GetKeyDown("e") && dansTrigger == true && murActive == true)
         {
             projecteurAnim.SetTrigger("Desactivation");
+            DesactiveMur();
         }
         else if(Input.GetKeyDown("e") && dansTrigger == true && murActive == false)
         {
             projecteurAnim.SetTrigger("Activation");
+            ActiveMur();
         }
     }
 
-    //Appellé en AnimEvent.
     private void ActiveMur()
     {
         mur.SetActive(true);
@@ -48,14 +47,11 @@ public class Projecteurs : MonoBehaviour
         murActive = true;
     }
 
-    //Appellé en AnimEvent.
     private void DesactiveMur()
     {
-        Destroy(Instantiate(effetMur), 3.5f);
-        effetMur.transform.position = new Vector3(mur.transform.position.x, mur.transform.position.y, mur.transform.position.z);
-        effetMur.transform.rotation = new Quaternion(mur.transform.rotation.x, mur.transform.rotation.y, mur.transform.rotation.z, mur.transform.rotation.w);
-        effetMur.transform.localScale = new Vector3(mur.transform.localScale.x, mur.transform.localScale.y, mur.transform.localScale.z);
         mur.SetActive(false);
+        Debug.Log("JoueEffet");
+        Destroy(Instantiate(effetMur, new Vector3(mur.transform.position.x, mur.transform.position.y, mur.transform.position.z), new Quaternion(mur.transform.rotation.x, mur.transform.rotation.y, mur.transform.rotation.z, mur.transform.rotation.w)), 3.5f);
         projectionSound.Stop();
         murActive = false;
     }
