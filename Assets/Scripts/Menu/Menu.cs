@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class Menu : MonoBehaviour
     public GameObject option;
     public GameObject controle;
     public GameObject credit;
+    public GameObject LoadScene;
+    public Slider silder;
+
+    public Text textProgress;
 
     bool ReadyToLoad = false;
     bool blmenu = false;
@@ -18,6 +23,7 @@ public class Menu : MonoBehaviour
     bool blcredit = false;
     bool bljouer = false;
 
+    
     void Awake()
     {
         option = GameObject.FindWithTag("Option");
@@ -28,9 +34,6 @@ public class Menu : MonoBehaviour
     {
         if (ReadyToLoad == true && !myClip.isPlaying)
         {
-            if (bljouer)
-                SceneManager.LoadScene(0);
-
             if (bloption)
             {
                 option.SetActive(true); 
@@ -59,8 +62,11 @@ public class Menu : MonoBehaviour
     public void BoutonJouer()
     {
         myClip.Play(0);
+        /*
         ReadyToLoad = true;
-        bljouer = true;
+        bljouer = true;*/
+        LoadScene.SetActive(true);
+        StartCoroutine(LoadAsync());
     }
     public void BoutonOption()
     {
@@ -84,5 +90,21 @@ public class Menu : MonoBehaviour
     public void BoutonQuitter()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadAsync()
+    {
+        Debug.Log(bljouer+"1");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(0);
+        
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+
+            silder.value = progress;
+
+            textProgress.text = progress * 100 + "%";
+            yield return null;
+        }
     }
 }
