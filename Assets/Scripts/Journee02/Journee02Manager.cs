@@ -7,17 +7,23 @@ public class Journee02Manager : MonoBehaviour
     public GameObject projecteurBloquant;
     public GameObject murBloque;
     public GameObject effetMurBloque;
-
     private bool effetAJoue = true;
+
+    public GameObject projecteurManequinRespire;
+    public GameObject manequinRespire;
+    private AudioSource respiration;
+    private bool sonJoue = false;
 
     private void Start()
     {
         effetMurBloque.transform.localScale = murBloque.transform.localScale;
+        respiration = manequinRespire.GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         BloquageMur();
+        JoueRespiration();
     }
 
     private void BloquageMur()
@@ -32,6 +38,20 @@ public class Journee02Manager : MonoBehaviour
         {
             effetAJoue = false;
             murBloque.SetActive(true);
+        }
+    }
+
+    private void JoueRespiration()
+    {
+        if(projecteurManequinRespire.GetComponent<Projecteurs>().murActive == true && sonJoue == false)
+        {
+            sonJoue = true;
+            respiration.Play(0);
+        }
+        if(projecteurManequinRespire.GetComponent<Projecteurs>().murActive == false && sonJoue == true)
+        {
+            sonJoue = false;
+            respiration.Stop();
         }
     }
 }
