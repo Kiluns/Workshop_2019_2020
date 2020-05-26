@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PremiereJournee.unity
     guid: 78030ed0c405658458c782af0a871bba
+  - enabled: 1
+    path: Assets/Scenes/Cinematique_Introduction.unity
+    guid: a3b8dc2d8d5d8d6488d786fca0e1f1a7
   m_configObjects: {}

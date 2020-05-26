@@ -21,7 +21,16 @@ public class Scene1Manager : MonoBehaviour
         ND1 = true;
         ND2 = true;
         time = Time.timeSinceLevelLoad;
-        time += 10f;
+        if (gameObject.name == "Scene1")
+            time += 10f;
+        else if (gameObject.name == "Scene2")
+            time += 6f;
+        else if (gameObject.name == "Scene3")
+            time += 18f;
+        else if (gameObject.name == "Scene4")
+            time += 13f;
+        else if (gameObject.name == "Scene5")
+            time += 19f;
     }
 
     void Update()

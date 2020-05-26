@@ -8,6 +8,7 @@ public class BlackScreenManager : MonoBehaviour
     private bool ND1;
     private bool ND2;
     private bool ND3;
+    private bool ND4;
 
     public float timer;
     private float blackDuration = 1.5f;
@@ -22,12 +23,15 @@ public class BlackScreenManager : MonoBehaviour
         ND1 = true;
         ND2 = true;
         ND3 = true;
-
+        ND4 = true;
         timer = Time.timeSinceLevelLoad;
+        animator.SetTrigger("FadeOut");
+        
     }
-
+    
     void Update()
     {
+        
         if (ND1)
         {
             ND1 = false;
@@ -43,7 +47,6 @@ public class BlackScreenManager : MonoBehaviour
 
         if (Time.timeSinceLevelLoad >= timer + 1.5f && ND3)
         {
-            Debug.Log("uiiu");
             ND1 = true;
             ND2 = true;
             ND3 = true;
