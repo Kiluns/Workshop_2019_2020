@@ -7,6 +7,7 @@ public class Journee02Manager : MonoBehaviour
     public GameObject projecteurBloquant;
     public GameObject murBloque;
     public GameObject effetMurBloque;
+    public GameObject mannequinDisparaitApresBloquage;
     private bool effetAJoue = true;
 
     public GameObject projecteurManequinRespire;
@@ -33,6 +34,7 @@ public class Journee02Manager : MonoBehaviour
             effetAJoue = true;
             murBloque.SetActive(false);
             Destroy(Instantiate(effetMurBloque, new Vector3(murBloque.transform.position.x, murBloque.transform.position.y, murBloque.transform.position.z), new Quaternion(murBloque.transform.rotation.x, murBloque.transform.rotation.y, murBloque.transform.rotation.z, murBloque.transform.rotation.w)), 3.5f);
+            mannequinDisparaitApresBloquage.SetActive(false);
         }
         if (projecteurBloquant.GetComponent<Projecteurs>().murActive == false && effetAJoue == true)
         {

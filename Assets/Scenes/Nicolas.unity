@@ -168,6 +168,7 @@ MonoBehaviour:
   murBloque: {fileID: 3955489806243166096}
   effetMurBloque: {fileID: 8989372607525629773, guid: 2fdd292f3c917e44489451cedad21d92,
     type: 3}
+  mannequinDisparaitApresBloquage: {fileID: 0}
   projecteurManequinRespire: {fileID: 3567280643423962096}
   manequinRespire: {fileID: 2030817632}
 --- !u!1 &77677294
@@ -3539,6 +3540,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3040783333089343678}
   m_Mesh: {fileID: 6329158148709259305, guid: 48933ee6a283952418484885bb648bac, type: 3}
+--- !u!1001 &7162432319769483481
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5950926578008299138, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_Name
+      value: mirroir
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.012115431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70700294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.012115435
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7070031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263930069621105809, guid: b5723c84d7f41c44e816e7f35f6b3d5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.963
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5723c84d7f41c44e816e7f35f6b3d5c, type: 3}
 --- !u!23 &7259661632193253097
 MeshRenderer:
   m_ObjectHideFlags: 0
