@@ -19,7 +19,7 @@ public class Bobines : MonoBehaviour
                 {
                     Rigidbody rbBobines;
                     rbBobines = transform.GetChild(i).GetComponent<Rigidbody>();
-                    rbBobines.AddForce(0f, -500f, -800f);
+                    rbBobines.AddForce(0f, -10f, -120f);
                     
                     //chuteSX.Play(0);
                 }
