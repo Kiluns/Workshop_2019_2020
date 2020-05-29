@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TextWritter : MonoBehaviour
+public class CastingTextWritter : MonoBehaviour
 {
     private TextMeshProUGUI uiText;
     private string textToWrite;

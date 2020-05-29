@@ -1,46 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class IntroductionDeuxiemePartie : MonoBehaviour
 {
-    public float speed = 0.5f;
+    private GameObject player;
+    private float speed = 30f;
+
     bool up = false;
     bool down = false;
+    
 
-    // Update is called once per frame
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<CastingPlayerLook>().isEnable = false;
+    }
+
+    public void Signature()
+    {
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger("Signature");
+        GetComponentInParent<CastingManager>().isSigne = true;
+    }
+
+    void LateUpdate()
+    {
+        if (transform.position.y >= -300f && Input.mouseScrollDelta.y > 0)
+        {
+            transform.position -= transform.up * speed;
+            Debug.Log("oui");
+        }
+        if (transform.position.y <= 1450f && Input.mouseScrollDelta.y < 0)
+        {
+            transform.position += transform.up * speed;
+        }
+    }
+
     void Update()
     {
-        if (up)
-        {
-            print("move up");
-            transform.position -= transform.up * Time.deltaTime * speed;
-        }
-        if (down)
-        {
-            print("move down");
-            transform.position += transform.up * Time.deltaTime * speed;
-        }
+        Debug.Log(transform.position.y);
     }
-    void OnGUI()
-    {
-        Event e = Event.current;
 
-        if (e.type == EventType.ScrollWheel)
-        {
-            if (e.delta.y > 0)
-            {
-                down = true;
-            }
-            else
-            {
-                up = true;
-            }
-        }
-        else
-        {
-            up = false;
-            down = false;
-        }
-    }
 }

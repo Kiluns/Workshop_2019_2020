@@ -9,12 +9,16 @@ public class CastingPlayerLook : MonoBehaviour
 
     [SerializeField] private Transform playerBody;
 
-    private float xAxisClamp;
-    private float yAxisClamp;
+    public float xAxisClamp;
+    public float yAxisClamp;
+
+    private Vector3 Reset =  new Vector3(0, 180, 0);
+    public bool isEnable;
+    private bool ND1;
 
     private void Awake()
     {
-        LockCursor();
+        ND1 = true;
         xAxisClamp = 0.0f;
         yAxisClamp = 0.0f;
     }
@@ -23,11 +27,25 @@ public class CastingPlayerLook : MonoBehaviour
     private void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        isEnable = true;
     }
 
     private void Update()
     {
-        CameraRotation();
+        if(ND1 && Time.timeSinceLevelLoad >= 1.5f)
+        {
+            ND1 = false;
+            LockCursor();
+        }
+
+        if (isEnable)
+        {
+            CameraRotation();
+        }
+        else if (!isEnable)
+        {
+            transform.eulerAngles = Reset;
+        }
     }
 
     private void CameraRotation()
