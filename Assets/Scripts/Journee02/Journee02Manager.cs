@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Journee02Manager : MonoBehaviour
 {
@@ -15,9 +16,15 @@ public class Journee02Manager : MonoBehaviour
     private AudioSource respiration;
     private bool sonJoue = false;
 
+    public GameObject porteFin;
+    public GameObject cle;
+    public GameObject mannequinNathanFin;
+    public GameObject lightAEteindre;
+    public GameObject lightAEteindreDeux;
+    public GameObject cleUI;
+
     private void Start()
     {
-        effetMurBloque.transform.localScale = murBloque.transform.localScale;
         respiration = manequinRespire.GetComponent<AudioSource>();
     }
 
@@ -25,6 +32,7 @@ public class Journee02Manager : MonoBehaviour
     {
         BloquageMur();
         JoueRespiration();
+        EventFinLevel();
     }
 
     private void BloquageMur()
@@ -55,5 +63,33 @@ public class Journee02Manager : MonoBehaviour
             sonJoue = false;
             respiration.Stop();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        respiration.Stop();
+        lightAEteindre.SetActive(false);
+        lightAEteindreDeux.SetActive(false);
+}
+
+    private void EventFinLevel()
+    {
+        if(porteFin.GetComponent<Porte>().aEssayerOuvrir == true)
+        {
+            cle.SetActive(true);
+            mannequinNathanFin.SetActive(true);
+            lightAEteindre.SetActive(true);
+            lightAEteindreDeux.SetActive(true);
+        }
+        if (porteFin.GetComponent<Porte>().cleUtilisee == true)
+        {
+            cleUI.SetActive(false);
+            FinLevel();
+        }
+    }
+
+    private void FinLevel()
+    {
+        SceneManager.LoadScene(6);
     }
 }
