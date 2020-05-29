@@ -6,7 +6,7 @@ public class Bobines : MonoBehaviour
 {
     bool peutTomber = true;
 
-    //public AudioSource chuteSX;
+    public AudioSource chuteSFX;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -19,9 +19,9 @@ public class Bobines : MonoBehaviour
                 {
                     Rigidbody rbBobines;
                     rbBobines = transform.GetChild(i).GetComponent<Rigidbody>();
-                    rbBobines.AddForce(0f, -5f, -100f);
+                    rbBobines.AddForce(-100f, 5f, 0f);
                     
-                    //chuteSX.Play(0);
+                    chuteSFX.Play(0);
                 }
                 peutTomber = false;
             }
