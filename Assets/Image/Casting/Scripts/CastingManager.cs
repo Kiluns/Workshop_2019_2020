@@ -63,7 +63,7 @@ public class CastingManager : MonoBehaviour
             transform.GetChild(1).GetComponent<CastingUIAssistant>().ND4 = true;
         }
 
-        if(ND7 && Time.timeSinceLevelLoad >= timerr + 5f)
+        if(ND7 && Time.timeSinceLevelLoad >= timerr + 60f)
         {
             ND7 = false;
             transform.GetChild(2).gameObject.SetActive(true);
