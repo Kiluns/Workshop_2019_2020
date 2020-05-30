@@ -8,11 +8,32 @@ public class RamasseCle : MonoBehaviour
     public GameObject porteFin;
     public AudioSource cleUISFX;
 
+    private bool dansTrigger = false;
+
+    private void Update()
+    {
+        Interaction();
+    }
+
+    private void Interaction()
+    {
+        if (Input.GetKeyDown("e") && dansTrigger == true)
+        {
+            cleUI.SetActive(true);
+            cleUISFX.Play(0);
+            porteFin.GetComponent<Porte>().fermeeACle = false;
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        cleUI.SetActive(true);
-        cleUISFX.Play(0);
-        porteFin.GetComponent<Porte>().fermeeACle = false;
-        Destroy(gameObject);
+        transform.GetChild(0).gameObject.transform.GetComponentInChildren<BlinkFeedback>().isActive = true;
+        dansTrigger = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        transform.GetChild(0).gameObject.transform.GetComponentInChildren<BlinkFeedback>().isActive = false;
+        dansTrigger = false;
     }
 }

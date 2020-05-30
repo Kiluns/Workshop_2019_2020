@@ -14,7 +14,6 @@ public class Bobines : MonoBehaviour
         {
             if (peutTomber)
             {
-
                 for (int i = 0; i < 51; i++)
                 {
                     Rigidbody rbBobines;
@@ -22,8 +21,9 @@ public class Bobines : MonoBehaviour
                     rbBobines.AddForce(-100f, 5f, 0f);
                     
                     chuteSFX.Play(0);
+
+                    peutTomber = false;
                 }
-                peutTomber = false;
             }
         }
         

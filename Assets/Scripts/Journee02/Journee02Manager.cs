@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Colorful;
 
 public class Journee02Manager : MonoBehaviour
 {
@@ -22,10 +23,16 @@ public class Journee02Manager : MonoBehaviour
     public GameObject lightAEteindre;
     public GameObject lightAEteindreDeux;
     public GameObject cleUI;
+    public GameObject playerController;
+    public GameObject playerCamera;
+    public AudioSource poursuiteOST;
+
+    public float vitessePoursuite = 1f;
 
     private void Start()
     {
         respiration = manequinRespire.GetComponent<AudioSource>();
+        poursuiteOST = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -80,12 +87,28 @@ public class Journee02Manager : MonoBehaviour
             mannequinNathanFin.SetActive(true);
             lightAEteindre.SetActive(true);
             lightAEteindreDeux.SetActive(true);
+            ChangementCameraEtVitesse();
+            if(!poursuiteOST.isPlaying)
+            {
+                poursuiteOST.Play(0);
+            }
         }
         if (porteFin.GetComponent<Porte>().cleUtilisee == true)
         {
             cleUI.SetActive(false);
             FinLevel();
         }
+    }
+
+    private void ChangementCameraEtVitesse()
+    {
+        playerCamera.GetComponent<Wiggle>().enabled = true;
+        playerCamera.GetComponent<DoubleVision>().enabled = true;
+        playerCamera.GetComponent<BilateralGaussianBlur>().enabled = true;
+        playerCamera.GetComponent<PhotoFilter>().enabled = true;
+        playerCamera.GetComponent<DirectionalBlur>().enabled = true;
+        playerController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_WalkSpeed = vitessePoursuite;
+        playerController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = vitessePoursuite;
     }
 
     private void FinLevel()
