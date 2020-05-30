@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CastingManager : MonoBehaviour
 {
+    private GameObject real;
     public bool isSigne;
     private float timerr;
     public float timer;
@@ -18,9 +20,14 @@ public class CastingManager : MonoBehaviour
     private bool ND8;
     private bool ND9;
     private bool ND10;
+    private bool ND11;
+    private bool ND12;
+    private bool ND13;
+
 
     void Start()
     {
+        real = GameObject.FindGameObjectWithTag("Realisateur");
         isSigne = false;
         timerr = Time.timeSinceLevelLoad;
         ND1 = true;
@@ -33,6 +40,9 @@ public class CastingManager : MonoBehaviour
         ND8 = true;
         ND9 = true;
         ND10 = true;
+        ND11 = true;
+        ND12 = true;
+        ND13 = true;
     }
 
     
@@ -43,60 +53,93 @@ public class CastingManager : MonoBehaviour
         {
             ND1 = false;
             transform.GetChild(1).GetComponent<CastingUIAssistant>().ND1 = true;
+            real.transform.GetChild(0).gameObject.SetActive(true);
         }
 
         if (ND2 && Time.timeSinceLevelLoad >= timerr + 10f)
         {
             ND2 = false;
             transform.GetChild(1).GetComponent<CastingUIAssistant>().ND2 = true;
+            real.transform.GetChild(0).gameObject.SetActive(false);
+            real.transform.GetChild(1).gameObject.SetActive(true);
+            real.transform.GetChild(7).gameObject.SetActive(false);
+            real.transform.GetChild(8).gameObject.SetActive(true);
         }
 
-        if (ND3 && Time.timeSinceLevelLoad >= timerr + 18f)
+        if (ND3 && Time.timeSinceLevelLoad >= timerr + 16f)
         {
             ND3 = false;
             transform.GetChild(1).GetComponent<CastingUIAssistant>().ND3 = true;
+            real.transform.GetChild(1).gameObject.SetActive(false);
+            real.transform.GetChild(2).gameObject.SetActive(true);
         }
 
-        if (ND4 && Time.timeSinceLevelLoad >= timerr + 22f)
+        if (ND4 && Time.timeSinceLevelLoad >= timerr + 19f)
         {
             ND4 = false;
             transform.GetChild(1).GetComponent<CastingUIAssistant>().ND4 = true;
+            real.transform.GetChild(2).gameObject.SetActive(false);
+            real.transform.GetChild(3).gameObject.SetActive(true);
+            real.transform.GetChild(7).gameObject.SetActive(true);
+            real.transform.GetChild(8).gameObject.SetActive(false);
         }
 
-        if(ND7 && Time.timeSinceLevelLoad >= timerr + 60f)
+        if (ND9 && Time.timeSinceLevelLoad >= timerr + 24f)
+        {
+            ND9 = false;
+            real.transform.GetChild(7).transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        if(ND7 && Time.timeSinceLevelLoad >= timerr + 29f)
         {
             ND7 = false;
             transform.GetChild(2).gameObject.SetActive(true);
         }
-
-        if (ND5 && Time.timeSinceLevelLoad >= timerr + 60f)
-        {
-            ND5 = false;
-            transform.GetChild(1).GetComponent<CastingUIAssistant>().ND5 = true;
-        }
-
-        if (ND6 && Time.timeSinceLevelLoad >= timerr + 120f)
-        {
-            ND6 = false;
-            transform.GetChild(1).GetComponent<CastingUIAssistant>().ND6 = true;
-        }
+        
 
         if (isSigne)
         {
             if (ND8)
             {
                 timer = Time.timeSinceLevelLoad;
-                timer += 2f;
                 ND8 = false;
             }
 
-            if (timer <= Time.time)
+            if (ND11 && timer + 0.7f <= Time.timeSinceLevelLoad)
             {
-                isSigne = false;
+                ND11 = false;
+                real.transform.GetChild(4).gameObject.SetActive(true);
+            }
+
+            if (ND10 && timer + 1f <= Time.timeSinceLevelLoad)
+            {
+                ND10 = false;
+                transform.GetChild(1).GetComponent<CastingUIAssistant>().ND5 = true;
+                real.transform.GetChild(9).gameObject.SetActive(true);
+                real.transform.GetChild(7).gameObject.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<CastingPlayerLook>().isEnable = true;
                 transform.GetChild(2).gameObject.SetActive(false);
             }
+
+            if (ND6 && Time.timeSinceLevelLoad >= timer + 3f)
+            {
+                ND6 = false;
+                transform.GetChild(1).GetComponent<CastingUIAssistant>().ND6 = true;
+                real.transform.GetChild(5).gameObject.SetActive(true);
+                real.transform.GetChild(8).gameObject.SetActive(true);
+                real.transform.GetChild(9).gameObject.SetActive(false);
+            }
+
+            if (ND5 && Time.timeSinceLevelLoad >= timer + 5f)
+            {
+                ND5 = false;
+                transform.GetChild(0).GetComponent<FonduNoirManager>().ND2 = true;
+                transform.GetChild(1).GetComponent<CastingUIAssistant>().ND7 = true;
+                real.transform.GetChild(6).gameObject.SetActive(true);
+            }
         }
+
+
     }
 }

@@ -6,7 +6,7 @@ public class FonduNoirManager : MonoBehaviour
 {
     Animator animator;
     private bool ND1;
-    private bool ND2;
+    public bool ND2;
     private bool ND3;
     private bool ND4;
 
@@ -21,7 +21,7 @@ public class FonduNoirManager : MonoBehaviour
     void Start()
     {
         ND1 = true;
-        ND2 = true;
+        ND2 = false;
         ND3 = true;
         ND4 = true;
         timer = Time.timeSinceLevelLoad;
@@ -33,6 +33,12 @@ public class FonduNoirManager : MonoBehaviour
         {
             ND1 = false;
             animator.SetTrigger("FadeOut");
+        }
+        if (ND2)
+        {
+            ND2 = false;
+            animator.SetTrigger("FadeIn");
+            Debug.Log("oui");
         }
     }
 }

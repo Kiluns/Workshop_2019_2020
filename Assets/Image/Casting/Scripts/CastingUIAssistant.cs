@@ -18,7 +18,7 @@ public class CastingUIAssistant : MonoBehaviour
     public bool ND4;
     public bool ND5;
     public bool ND6;
-    private bool ND7;
+    public bool ND7;
     private bool ND8;
     private bool ND9;
     private bool ND10;
@@ -48,37 +48,43 @@ public class CastingUIAssistant : MonoBehaviour
         if (ND1)
         {
             ND1 = false;
-            castingTextWritter.AddWriter(messageText, "- Bonjour Nathan.", 0.1f);
+            castingTextWritter.AddWriter(messageText, "- Bonjour Nathan, je vous attendais..", 0.05f);
         }
 
         if (ND2)
         {
             ND2 = false;
-            castingTextWritter.AddWriter(messageText, "- J'ai étudié votre profil et je reconnais que j'ai été très séduit !", 0.1f);
+            castingTextWritter.AddWriter(messageText, "- Alors, j'ai bien étudié votre profil et je dois bien reconnaitre que j'ai été très séduit !", 0.05f);
         }
 
         if (ND3)
         {
             ND3 = false;
-            castingTextWritter.AddWriter(messageText, "- Vous êtes toujours partant ?", 0.1f);
+            castingTextWritter.AddWriter(messageText, "- Vous êtes toujours partant ?", 0.05f);
         }
 
         if (ND4)
         {
             ND4 = false;
-            castingTextWritter.AddWriter(messageText, "- Vous êtes le type de profil idéal pour mon prochain film ! Alors passons les formalités d'un casting et signons immédiatement ce contrat !", 0.1f);
+            castingTextWritter.AddWriter(messageText, "- Je dois bien vous avouer que vous êtes le type de profil idéal pour mon prochain film ! Alors passons les formalités d'un casting et signons immédiatement ce contrat !", 0.05f);
         }
 
         if (ND5)
         {
             ND5 = false;
-            castingTextWritter.AddWriter(messageText, "- Merci ! Ce sera parfait comme ça...", 0.1f);
+            castingTextWritter.AddWriter(messageText, "- Merci !", 0.01f);
         }
 
         if (ND6)
         {
             ND6 = false;
-            castingTextWritter.AddWriter(messageText, "- Je vous attend demain à la première heure dans nos studios...", 0.1f);
+            castingTextWritter.AddWriter(messageText, "- Ce sera parfait comme ça !", 0.05f);
+        }
+
+        if (ND7)
+        {
+            ND7 = false;
+            castingTextWritter.AddWriter(messageText, "- Je vous attend demain à la première heure dans nos studios...", 0.05f);
         }
     }
 }
