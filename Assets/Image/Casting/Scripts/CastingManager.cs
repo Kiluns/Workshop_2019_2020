@@ -90,7 +90,7 @@ public class CastingManager : MonoBehaviour
             real.transform.GetChild(7).transform.GetChild(0).gameObject.SetActive(true);
         }
 
-        if(ND7 && Time.timeSinceLevelLoad >= timerr + 29f)
+        if(ND7 && Time.timeSinceLevelLoad >= timerr + 32f)
         {
             ND7 = false;
             transform.GetChild(2).gameObject.SetActive(true);
