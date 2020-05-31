@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 public class MenuPause : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
+    //public GameObject pauseMenuUI;
     public GameObject fps;
 
+    private void Awake()
+    {
+        fps = GameObject.FindWithTag("Player");
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            
             if (GameIsPaused)
             {
                 
@@ -21,6 +25,7 @@ public class MenuPause : MonoBehaviour
             }
             else
             {
+                Cursor.lockState = CursorLockMode.None;
                 Pause();
             }
         }
@@ -28,14 +33,14 @@ public class MenuPause : MonoBehaviour
 
     void Reprendre()
     {
-        pauseMenuUI.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
         fps.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        transform.GetChild(0).gameObject.SetActive(true);
         fps.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
