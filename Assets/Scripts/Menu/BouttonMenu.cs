@@ -17,6 +17,7 @@ public class BouttonMenu : MonoBehaviour
         {
             menu.SetActive(true);
             monButton.SetActive(false);
+            ReadyToLoad = false;
         }
     }
     public void BoutonMenu()

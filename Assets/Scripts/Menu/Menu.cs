@@ -44,14 +44,14 @@ public class Menu : MonoBehaviour
             if (blcontrole)
             {
                 menu.SetActive(false);
-                credit.SetActive(true);
+                controle.SetActive(true);
                 blcontrole = false;
             }
 
             if (blcredit)
             {
                 menu.SetActive(false);
-                controle.SetActive(true);
+                credit.SetActive(true);
                 blcredit = false;
             }             
             
