@@ -95,7 +95,7 @@ public class Menu : MonoBehaviour
     IEnumerator LoadAsync()
     {
         Debug.Log(bljouer+"1");
-        AsyncOperation operation = SceneManager.LoadSceneAsync(0);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
         
         while (!operation.isDone)
         {

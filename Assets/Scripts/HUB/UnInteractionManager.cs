@@ -72,8 +72,7 @@ public class UnInteractionManager : MonoBehaviour
 
         if (isFinish)
         {
-            print("oui");
-            //SceneManager.LoadScene(4);
+            GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremiereJournee = true;
         }
             
         

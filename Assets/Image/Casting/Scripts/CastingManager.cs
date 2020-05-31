@@ -138,6 +138,11 @@ public class CastingManager : MonoBehaviour
                 transform.GetChild(1).GetComponent<CastingUIAssistant>().ND7 = true;
                 real.transform.GetChild(6).gameObject.SetActive(true);
             }
+
+            if (Time.timeSinceLevelLoad >= timer + 8f)
+            {
+                GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremierSoir = true;
+            }
         }
 
 

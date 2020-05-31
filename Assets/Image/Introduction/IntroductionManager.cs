@@ -200,9 +200,9 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
 
-        if(Time.timeSinceLevelLoad >= 100f)
+        if(Time.timeSinceLevelLoad >= 96f)
         {
-            Application.Quit();
+            GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goBureau = true;
         }
     }
 }
