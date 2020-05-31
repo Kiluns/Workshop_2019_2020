@@ -15,6 +15,13 @@ public class SceneLoading : MonoBehaviour
     public bool goDernierSoir = false;
     public bool goFin = false;
 
+    [HideInInspector]
+    public bool activationPremierSoir = false;
+    [HideInInspector]
+    public bool activationSecondSoir = false;
+    [HideInInspector]
+    public bool activationDernierSoir = false;
+
     private void Awake()
     {
         GameObject[] SceneLoadingManager = GameObject.FindGameObjectsWithTag("SceneLoadingManager");
@@ -50,7 +57,38 @@ public class SceneLoading : MonoBehaviour
         if(goPremierSoir)
         {
             SceneManager.LoadScene(3);
+            //Activer ce qui doit l'être le premier soir, ici on met juste un bool en true, c'est un object différent ayant celui là comme variable (on trouve celui là avec le tag) dans la bonne scene qui fera les activations
+            activationPremierSoir = true;
             goPremierSoir = false;
+        }
+        if(goPremiereJournee)
+        {
+            SceneManager.LoadScene(4);
+            goPremiereJournee = false;
+        }
+        if(goSecondSoir)
+        {
+            SceneManager.LoadScene(5);
+            //Activer ce qui doit l'être le second soir, même logique
+            activationSecondSoir = true;
+            goSecondSoir = false;
+        }
+        if(goSecondeJournee)
+        {
+            SceneManager.LoadScene(6);
+            goSecondeJournee = false;
+        }
+        if(goDernierSoir)
+        {
+            SceneManager.LoadScene(7);
+            //Activer ce qui doit l'être le troisième soir, même logique
+            activationDernierSoir = true;
+            goDernierSoir = false;
+        }
+        if(goFin)
+        {
+            SceneManager.LoadScene(8);
+            goFin = false;
         }
     }
 }
