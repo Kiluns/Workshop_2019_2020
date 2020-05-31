@@ -29,6 +29,32 @@ public class activateOutline : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (this.name == "TriggerCanape")
+            {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND2 = true;
+            }
+            if (this.name == "TriggerMiroir")
+            {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND3 = true;
+            }
+            if (this.name == "TriggerFrigo")
+            {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND4 = true;
+            }
+            if (this.name == "TriggerTele")
+            {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND5 = true;
+            }
+            if (this.name == "TriggerCadres")
+            {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND11 = true;
+            }
+            if (this.name == "TriggerFenetre")
+            {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND12 = true;
+            }
+
+
             isTriggered = true;
             activeSmoothOutline = true;
             desactiveSmoothOutline = false;
@@ -39,6 +65,8 @@ public class activateOutline : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND1 = true;
+
         if (other.CompareTag("Player"))
         {
             isTriggered = false;
@@ -56,15 +84,21 @@ public class activateOutline : MonoBehaviour
     
     void Update()
     {
-
         if(isTriggered && Input.GetKeyDown(KeyCode.E))
         {
             if (this.name == "TriggerCanape")
             {
-                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
-                ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 4;
-                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                if(ZeroManager.GetComponent<UnInteractionManager>().isTelephone == true)
+                {
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND7 = true;
+                }
+                else
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 4;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
             }
 
             if (this.name == "TriggerFrigo")
@@ -79,7 +113,10 @@ public class activateOutline : MonoBehaviour
                 ZeroManager.GetComponent<UnInteractionManager>().isTV = false;
 
             if (this.name == "TriggerTelephone")
+            {
                 ZeroManager.GetComponent<UnInteractionManager>().isTelephone = false;
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND8 = true;
+            }
 
             if (this.name == "TriggerMiroir")
             {

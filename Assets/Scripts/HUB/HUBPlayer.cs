@@ -18,7 +18,15 @@ public class HUBPlayer : MonoBehaviour
 
     void Update()
     {
-        anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        if (isWalkEnable)
+        {
+            anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        }
+        else
+        {
+            anim.SetFloat("Horizontal", 0f);
+        }
+        
     }
 
     void FixedUpdate()

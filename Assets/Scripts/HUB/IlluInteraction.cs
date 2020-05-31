@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class IlluInteraction : MonoBehaviour
 {
@@ -43,8 +44,9 @@ public class IlluInteraction : MonoBehaviour
     {
         if (isInteracting)
         {
-            if(neverDone)
+            if (neverDone)
             {
+                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND1 = true;
                 BlackCrossFadeIN();
                 myTime = Time.time + 1f;
                 neverDone = false;
