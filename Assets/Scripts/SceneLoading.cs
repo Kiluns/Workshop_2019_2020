@@ -16,7 +16,7 @@ public class SceneLoading : MonoBehaviour
     public bool goFin = false;
 
     [HideInInspector]
-    public bool activationPremierSoir = false;
+    public bool activationPremierSoir = true;
     [HideInInspector]
     public bool activationSecondSoir = false;
     [HideInInspector]
@@ -70,6 +70,7 @@ public class SceneLoading : MonoBehaviour
         {
             SceneManager.LoadScene(3);
             //Activer ce qui doit l'être le second soir, même logique
+            activationPremierSoir = false;
             activationSecondSoir = true;
             goSecondSoir = false;
         }
@@ -82,6 +83,7 @@ public class SceneLoading : MonoBehaviour
         {
             SceneManager.LoadScene(3);
             //Activer ce qui doit l'être le troisième soir, même logique
+            activationSecondSoir = false;
             activationDernierSoir = true;
             goDernierSoir = false;
         }

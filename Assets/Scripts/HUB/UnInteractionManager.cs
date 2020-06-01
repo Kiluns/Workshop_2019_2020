@@ -33,6 +33,8 @@ public class UnInteractionManager : MonoBehaviour
 
     private float timer;
 
+    public int mySoiree = 1;
+
     private bool ND1;
     private bool ND2;
     private bool ND3;
@@ -46,6 +48,7 @@ public class UnInteractionManager : MonoBehaviour
 
     void Start()
     {
+        mySoiree = 1;
         ND1 = true;
         ND2 = true;
         ND3 = true;
@@ -69,101 +72,183 @@ public class UnInteractionManager : MonoBehaviour
 
     void Update()
     {
-        if (!isCanape && !isFrigo)
-            isFinish = true;
+        if(mySoiree == 1)
+        {
+            if (!isCanape && !isFrigo)
+                isFinish = true;
 
-        if (isFinish)
-        {
-            if (ND6)
+            if (isFinish)
             {
-                ND6 = false;
-                timer = Time.timeSinceLevelLoad;
+                if (ND6)
+                {
+                    ND6 = false;
+                    timer = Time.timeSinceLevelLoad;
+                }
+                if (Time.timeSinceLevelLoad >= timer + 5f)
+                {
+                    print("oui");
+                    GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goSecondeJournee = true;
+                }
             }
-            if(Time.timeSinceLevelLoad >= timer + 5f)
+
+            if (!isTV)
             {
-                print("oui");
-                GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremiereJournee = true;
+                TV.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                TV.SetActive(false);
+                if (ND5)
+                {
+                    ND5 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
             }
-            
-        }
-            
-        
-        if (!isTV)
-        {
-            TV.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            TV.GetComponent<activateOutline>().enabled = false;
-            if (ND5)
+
+            if (!isCanape)
             {
-                ND5 = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                Canape.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Canape.GetComponent<activateOutline>().enabled = false;
+            }
+
+            if (!isMiroir)
+            {
+                Miroir.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Miroir.SetActive(false);
+                if (ND5)
+                {
+                    ND5 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isCadres)
+            {
+                Cadres.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Cadres.SetActive(false);
+                if (ND3)
+                {
+                    ND3 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isFrigo)
+            {
+                Frigo.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Frigo.SetActive(false);
+                if (ND1)
+                {
+                    ND1 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isTelephone)
+            {
+                Telephone.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Telephone.SetActive(false);
+                if (ND2)
+                {
+                    ND2 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isFenetre)
+            {
+                Fenetre.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Fenetre.SetActive(false);
+                if (ND4)
+                {
+                    ND4 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
             }
         }
 
-        if (!isCanape)
+        if(mySoiree == 0)
         {
-            Canape.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            Canape.GetComponent<activateOutline>().enabled = false;
-        }
+            if (!isCanape && !isFrigo)
+                isFinish = true;
 
-        if (!isMiroir)
-        {
-            Miroir.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            Miroir.GetComponent<activateOutline>().enabled = false;
-            Miroir.SetActive(false);
-            if (ND5)
+            if (isFinish)
             {
-                ND5 = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                if (ND6)
+                {
+                    ND6 = false;
+                    timer = Time.timeSinceLevelLoad;
+                }
+                if (Time.timeSinceLevelLoad >= timer + 5f)
+                {
+                    print("oui");
+                    GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremiereJournee = true;
+                }
             }
-        }
 
-        if (!isCadres)
-        {
-            Cadres.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            Cadres.GetComponent<activateOutline>().enabled = false;
-            Cadres.SetActive(false);
-            if (ND3)
+            if (!isTV)
             {
-                ND3 = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                TV.SetActive(false);
+                if (ND5)
+                {
+                    ND5 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
             }
-        }
 
-        if (!isFrigo)
-        {
-            
-            Frigo.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            Frigo.GetComponent<activateOutline>().enabled = false;
-            Frigo.SetActive(false);
-            if (ND1)
+            if (!isCanape)
             {
-                ND1 = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                Canape.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Canape.GetComponent<activateOutline>().enabled = false;
             }
-        }
 
-        if (!isTelephone)
-        {
-            Telephone.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            Telephone.GetComponent<activateOutline>().enabled = false;
-            Telephone.SetActive(false);
-            if (ND2)
+            if (!isMiroir)
             {
-                ND2 = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                Miroir.SetActive(false);
+                if (ND5)
+                {
+                    ND5 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
             }
-        }
 
-        if (!isFenetre)
-        {
-            Fenetre.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
-            Fenetre.GetComponent<activateOutline>().enabled = false;
-            Fenetre.SetActive(false);
-            if (ND4)
+            if (!isCadres)
             {
-                ND4 = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                Cadres.SetActive(false);
+                if (ND3)
+                {
+                    ND3 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isFrigo)
+            {
+                Frigo.SetActive(false);
+                if (ND1)
+                {
+                    ND1 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isTelephone)
+            {
+                Telephone.SetActive(false);
+                if (ND2)
+                {
+                    ND2 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
+            }
+
+            if (!isFenetre)
+            {
+                Fenetre.SetActive(false);
+                if (ND4)
+                {
+                    ND4 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                }
             }
         }
     }
+        
 }

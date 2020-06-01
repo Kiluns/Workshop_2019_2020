@@ -31,27 +31,37 @@ public class activateOutline : MonoBehaviour
         {
             if (this.name == "TriggerCanape")
             {
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND2 = true;
+                if(ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND2 = true;
             }
             if (this.name == "TriggerMiroir")
             {
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND3 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND3 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 1)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND14 = true;
             }
             if (this.name == "TriggerFrigo")
             {
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND4 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND4 = true;
             }
             if (this.name == "TriggerTele")
             {
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND5 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND5 = true;
             }
             if (this.name == "TriggerCadres")
             {
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND11 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND11 = true;
             }
             if (this.name == "TriggerFenetre")
             {
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND12 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND12 = true;
+                if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 1)
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND15 = true;
             }
 
 
@@ -59,7 +69,6 @@ public class activateOutline : MonoBehaviour
             activeSmoothOutline = true;
             desactiveSmoothOutline = false;
             other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = true;
-            //other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isJustActivated += 1;
         }
     }
 
@@ -73,7 +82,6 @@ public class activateOutline : MonoBehaviour
             activeSmoothOutline = false;
             desactiveSmoothOutline = true;
             other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isActive = false;
-            //other.transform.GetChild(1).gameObject.GetComponent<BlinkFeedback>().isJustActivated += 1;
         }
     }
     
@@ -86,61 +94,125 @@ public class activateOutline : MonoBehaviour
     {
         if(isTriggered && Input.GetKeyDown(KeyCode.E))
         {
-            if (this.name == "TriggerCanape")
+            if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 1)
             {
-                if(ZeroManager.GetComponent<UnInteractionManager>().isTelephone == true)
+                if (this.name == "TriggerCanape")
                 {
-                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND7 = true;
+                    if (ZeroManager.GetComponent<UnInteractionManager>().isTelephone == true)
+                    {
+                        GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND16 = true;
+                    }
+                    else
+                    {
+                        Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                        ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
+                        IllusManager.GetComponent<IlluInteraction>().myIllu = 4;
+                        IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                    }
+
                 }
-                else
+
+                if (this.name == "TriggerFrigo")
                 {
                     Player.GetComponent<HUBPlayer>().isWalkEnable = false;
-                    ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
-                    IllusManager.GetComponent<IlluInteraction>().myIllu = 4;
+                    ZeroManager.GetComponent<UnInteractionManager>().isFrigo = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 1;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
+
+                if (this.name == "TriggerTele")
+                    ZeroManager.GetComponent<UnInteractionManager>().isTV = false;
+
+                if (this.name == "TriggerTelephone")
+                {
+                    ZeroManager.GetComponent<UnInteractionManager>().isTelephone = false;
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND17 = true;
+                }
+
+                if (this.name == "TriggerMiroir")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isMiroir = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 6;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
+
+                if (this.name == "TriggerFenetre")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 7;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
+
+                if (this.name == "TriggerCadres")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isCadres = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 5;
                     IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
                 }
             }
 
-            if (this.name == "TriggerFrigo")
+            if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 0)
             {
-                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
-                ZeroManager.GetComponent<UnInteractionManager>().isFrigo = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 1;
-                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
-            }
+                if (this.name == "TriggerCanape")
+                {
+                    if (ZeroManager.GetComponent<UnInteractionManager>().isTelephone == true)
+                    {
+                        GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND7 = true;
+                    }
+                    else
+                    {
+                        Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                        ZeroManager.GetComponent<UnInteractionManager>().isCanape = false;
+                        IllusManager.GetComponent<IlluInteraction>().myIllu = 4;
+                        IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                    }
+                }
 
-            if (this.name == "TriggerTele")
-                ZeroManager.GetComponent<UnInteractionManager>().isTV = false;
+                if (this.name == "TriggerFrigo")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isFrigo = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 1;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
 
-            if (this.name == "TriggerTelephone")
-            {
-                ZeroManager.GetComponent<UnInteractionManager>().isTelephone = false;
-                GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND8 = true;
-            }
+                if (this.name == "TriggerTele")
+                    ZeroManager.GetComponent<UnInteractionManager>().isTV = false;
 
-            if (this.name == "TriggerMiroir")
-            {
-                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
-                ZeroManager.GetComponent<UnInteractionManager>().isMiroir = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 6;
-                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
-            }
+                if (this.name == "TriggerTelephone")
+                {
+                    ZeroManager.GetComponent<UnInteractionManager>().isTelephone = false;
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND8 = true;
+                }
 
-            if (this.name == "TriggerFenetre")
-            {
-                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
-                ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 7;
-                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
-            }
+                if (this.name == "TriggerMiroir")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isMiroir = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 6;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
 
-            if (this.name == "TriggerCadres")
-            {
-                Player.GetComponent<HUBPlayer>().isWalkEnable = false;
-                ZeroManager.GetComponent<UnInteractionManager>().isCadres = false;
-                IllusManager.GetComponent<IlluInteraction>().myIllu = 5;
-                IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                if (this.name == "TriggerFenetre")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 7;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
+
+                if (this.name == "TriggerCadres")
+                {
+                    Player.GetComponent<HUBPlayer>().isWalkEnable = false;
+                    ZeroManager.GetComponent<UnInteractionManager>().isCadres = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 5;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
             }
+            
 
         }
 
