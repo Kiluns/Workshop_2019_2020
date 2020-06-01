@@ -58,6 +58,7 @@ public class IntroductionManager : MonoBehaviour
 
     void Update()
     {
+        //Premier fondu au noir
         if (ND20 && Time.timeSinceLevelLoad >= timer + 0.55f)
         {
             ND20 = false;
@@ -65,6 +66,7 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
 
+        //Premier clap
         if (ND19 && Time.timeSinceLevelLoad >= timer + 2f)
         {
             ND19 = false;
@@ -84,7 +86,7 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(6).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND3 && Time.timeSinceLevelLoad >= timer + 15f)
+        if (ND3 && Time.timeSinceLevelLoad >= timer + 31f)
         {
             ND3 = false;
             transform.GetChild(11).gameObject.SetActive(true);
@@ -92,26 +94,26 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 2
-        if (ND4 && Time.timeSinceLevelLoad >= timer + 16.5f)
+        if (ND4 && Time.timeSinceLevelLoad >= timer + 32.5f)
         {
             ND4 = false;
             transform.GetChild(2).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND5 && Time.timeSinceLevelLoad >= timer + 19f)
+        if (ND5 && Time.timeSinceLevelLoad >= timer + 36f)
         {
             ND5 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 2
-        if (ND6 && Time.timeSinceLevelLoad >= timer + 20.5f)
+        if (ND6 && Time.timeSinceLevelLoad >= timer + 38.5f)
         {
             ND6 = false;
             transform.GetChild(7).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND7 && Time.timeSinceLevelLoad >= timer + 25.5f)
+        if (ND7 && Time.timeSinceLevelLoad >= timer + 43.5f)
         {
             ND7 = false;
             transform.GetChild(11).gameObject.SetActive(true);
@@ -119,26 +121,26 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 3
-        if (ND8 && Time.timeSinceLevelLoad >= timer + 27f)
+        if (ND8 && Time.timeSinceLevelLoad >= timer + 45f)
         {
             ND8 = false;
             transform.GetChild(3).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND9 && Time.timeSinceLevelLoad >= timer + 29.5f)
+        if (ND9 && Time.timeSinceLevelLoad >= timer + 48.5f)
         {
             ND9 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 3
-        if (ND10 && Time.timeSinceLevelLoad >= timer + 31f)
+        if (ND10 && Time.timeSinceLevelLoad >= timer + 51f)
         {
             ND10 = false;
             transform.GetChild(8).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND11 && Time.timeSinceLevelLoad >= timer + 48f)
+        if (ND11 && Time.timeSinceLevelLoad >= timer + 82f)
         {
             ND11 = false;
             transform.GetChild(11).gameObject.SetActive(true);
@@ -146,26 +148,26 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 4
-        if (ND12 && Time.timeSinceLevelLoad >= timer + 49.5f)
+        if (ND12 && Time.timeSinceLevelLoad >= timer + 83.5f)
         {
             ND12 = false;
             transform.GetChild(4).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND13 && Time.timeSinceLevelLoad >= timer + 52f)
+        if (ND13 && Time.timeSinceLevelLoad >= timer + 87f)
         {
             ND13 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 4
-        if (ND14 && Time.timeSinceLevelLoad >= timer + 53.5f)
+        if (ND14 && Time.timeSinceLevelLoad >= timer + 89.5f)
         {
             ND14 = false;
             transform.GetChild(9).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND15 && Time.timeSinceLevelLoad >= timer + 65.5f)
+        if (ND15 && Time.timeSinceLevelLoad >= timer + 138.5f)
         {
             ND15 = false;
             transform.GetChild(11).gameObject.SetActive(true);
@@ -173,26 +175,26 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 5
-        if (ND16 && Time.timeSinceLevelLoad >= timer + 67f)
+        if (ND16 && Time.timeSinceLevelLoad >= timer + 140f)
         {
             ND16 = false;
             transform.GetChild(5).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND17 && Time.timeSinceLevelLoad >= timer + 69.5f)
+        if (ND17 && Time.timeSinceLevelLoad >= timer + 143.5f)
         {
             ND17 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 5
-        if (ND18 && Time.timeSinceLevelLoad >= timer + 71f)
+        if (ND18 && Time.timeSinceLevelLoad >= timer + 146f)
         {
             ND18 = false;
             transform.GetChild(10).gameObject.SetActive(true);
         }
 
-        if (ND21 && Time.timeSinceLevelLoad >= timer + 89f)
+        if (ND21 && Time.timeSinceLevelLoad >= timer + 199f)
         {
             ND21 = false;
             transform.GetChild(11).gameObject.SetActive(true);
@@ -200,7 +202,7 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
 
-        if(Time.timeSinceLevelLoad >= 96f)
+        if(Time.timeSinceLevelLoad >= 209f)
         {
             GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goBureau = true;
         }
