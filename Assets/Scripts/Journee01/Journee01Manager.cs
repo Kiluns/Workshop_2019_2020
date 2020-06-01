@@ -83,10 +83,9 @@ public class Journee01Manager : MonoBehaviour
         }
     }
 
-    //Est lancé par animevent dans le canvas.
     public void FinLevel()
     {
-        SceneManager.LoadScene(3);
+        GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goSecondSoir = true;
     }
 
     private void OnTriggerEnter(Collider other)

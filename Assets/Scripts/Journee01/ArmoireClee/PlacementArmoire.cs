@@ -14,7 +14,6 @@ public class PlacementArmoire : MonoBehaviour
         {
             armoireADesactiver.SetActive(false);
             armoireAActiver.SetActive(true);
-            Debug.Log("c'est fait");
             levelManager.GetComponent<Journee01Manager>().placementArmoiresdecide = true;
         }
     }

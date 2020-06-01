@@ -113,6 +113,6 @@ public class Journee02Manager : MonoBehaviour
 
     private void FinLevel()
     {
-        SceneManager.LoadScene(6);
+        GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goDernierSoir = true;
     }
 }
