@@ -31,6 +31,8 @@ public class UnInteractionManager : MonoBehaviour
     [HideInInspector]
     public bool isFenetre;
 
+    private float timer;
+
     private bool ND1;
     private bool ND2;
     private bool ND3;
@@ -72,7 +74,17 @@ public class UnInteractionManager : MonoBehaviour
 
         if (isFinish)
         {
-            GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremiereJournee = true;
+            if (ND6)
+            {
+                ND6 = false;
+                timer = Time.timeSinceLevelLoad;
+            }
+            if(Time.timeSinceLevelLoad >= timer + 5f)
+            {
+                print("oui");
+                GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremiereJournee = true;
+            }
+            
         }
             
         
