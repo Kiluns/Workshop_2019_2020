@@ -57,7 +57,7 @@ public class SceneLoading : MonoBehaviour
         if(goPremierSoir)
         {
             SceneManager.LoadScene(3);
-            //Activer ce qui doit l'être le premier soir, ici on met juste un bool en true, c'est un object différent ayant celui là comme variable (on trouve celui là avec le tag) dans la bonne scene qui fera les activations
+            //Activer ce qui doit l'être le premier soir, ici on met juste un bool en true, c'est SoirManager dans la bonne scene qui fera les activations
             activationPremierSoir = true;
             goPremierSoir = false;
         }
