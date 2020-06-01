@@ -68,26 +68,26 @@ public class SceneLoading : MonoBehaviour
         }
         if(goSecondSoir)
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(3);
             //Activer ce qui doit l'être le second soir, même logique
             activationSecondSoir = true;
             goSecondSoir = false;
         }
         if(goSecondeJournee)
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(5);
             goSecondeJournee = false;
         }
         if(goDernierSoir)
         {
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(3);
             //Activer ce qui doit l'être le troisième soir, même logique
             activationDernierSoir = true;
             goDernierSoir = false;
         }
         if(goFin)
         {
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene(6);
             goFin = false;
         }
     }
