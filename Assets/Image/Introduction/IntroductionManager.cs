@@ -29,6 +29,13 @@ public class IntroductionManager : MonoBehaviour
     private bool ND20;
     private bool ND21;
 
+    public GameObject transition01;
+    public GameObject transition02;
+    public GameObject transition03;
+    public GameObject transition04;
+    public GameObject transition05;
+    public GameObject transition06;
+
     void Start()
     {
         Cursor.visible = false;
@@ -59,6 +66,7 @@ public class IntroductionManager : MonoBehaviour
 
     void Update()
     {
+        transition01.SetActive(true);
         //Premier fondu au noir
         if (ND20 && Time.timeSinceLevelLoad >= timer + 0.55f)
         {
@@ -89,6 +97,7 @@ public class IntroductionManager : MonoBehaviour
         //Fondu au noir
         if (ND3 && Time.timeSinceLevelLoad >= timer + 31f)
         {
+            transition06.SetActive(true);
             ND3 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
@@ -116,6 +125,7 @@ public class IntroductionManager : MonoBehaviour
         //Fondu au noir
         if (ND7 && Time.timeSinceLevelLoad >= timer + 43.5f)
         {
+            transition03.SetActive(true);
             ND7 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
@@ -170,6 +180,7 @@ public class IntroductionManager : MonoBehaviour
         //Fondu au noir
         if (ND15 && Time.timeSinceLevelLoad >= timer + 138.5f)
         {
+            transition05.SetActive(true);
             ND15 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
@@ -184,6 +195,7 @@ public class IntroductionManager : MonoBehaviour
         //Fondu au noir
         if (ND17 && Time.timeSinceLevelLoad >= timer + 143.5f)
         {
+            transition04.SetActive(true);
             ND17 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
@@ -197,6 +209,7 @@ public class IntroductionManager : MonoBehaviour
 
         if (ND21 && Time.timeSinceLevelLoad >= timer + 199f)
         {
+            transition02.SetActive(true);
             ND21 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
