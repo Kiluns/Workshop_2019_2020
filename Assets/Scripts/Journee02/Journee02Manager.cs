@@ -93,10 +93,10 @@ public class Journee02Manager : MonoBehaviour
                 poursuiteOST.Play(0);
             }
         }
-        if (porteFin.GetComponent<Porte>().cleUtilisee == true)
+        if(porteFin.GetComponent<Porte>().cleUtilisee == true)
         {
             cleUI.SetActive(false);
-            FinLevel();
+            GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goDernierSoir = true;
         }
     }
 
@@ -109,10 +109,5 @@ public class Journee02Manager : MonoBehaviour
         playerCamera.GetComponent<DirectionalBlur>().enabled = true;
         playerController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_WalkSpeed = vitessePoursuite;
         playerController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = vitessePoursuite;
-    }
-
-    private void FinLevel()
-    {
-        GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goDernierSoir = true;
     }
 }

@@ -22,7 +22,8 @@ public class RamasseCle : MonoBehaviour
             cleUI.SetActive(true);
             cleUISFX.Play(0);
             porteFin.GetComponent<Porte>().fermeeACle = false;
-            Destroy(gameObject);
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            Destroy(transform.GetChild(0).gameObject);
         }
     }
 
