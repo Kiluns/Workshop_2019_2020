@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: d9bf3bd8d63812b4380577b1af83e249
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cinematique_Introduction.unity
     guid: a3b8dc2d8d5d8d6488d786fca0e1f1a7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Bureau.unity
     guid: e533261fd22b5f24c964c6df76a9d4c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Appartement.unity
     guid: 2a0597d15d7a77940b6a69a6a988bbbe
   - enabled: 1
     path: Assets/Scenes/PremiereJournee.unity
     guid: 78030ed0c405658458c782af0a871bba
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DeuxiemeJournee.unity
     guid: 97a4dd2ab620ff54daee5e26640100b4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credits.unity
     guid: 382163d5d0d9b064cb3e42daeb2c91b7
   m_configObjects: {}

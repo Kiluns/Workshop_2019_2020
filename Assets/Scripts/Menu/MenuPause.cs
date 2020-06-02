@@ -34,14 +34,14 @@ public class MenuPause : MonoBehaviour
     void Reprendre()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        fps.SetActive(true);
+        //fps.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
     void Pause()
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        fps.SetActive(false);
+        //fps.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
