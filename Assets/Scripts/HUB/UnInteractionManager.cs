@@ -71,6 +71,7 @@ public class UnInteractionManager : MonoBehaviour
         ND7 = true;
         ND8 = true;
 
+        Cursor.visible = false;
 
         isTV = true;
         isCanape = true;

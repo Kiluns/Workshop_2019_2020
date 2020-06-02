@@ -27,6 +27,7 @@ public class CastingPlayerLook : MonoBehaviour
     private void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         isEnable = true;
     }
 

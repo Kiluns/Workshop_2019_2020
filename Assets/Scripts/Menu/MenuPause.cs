@@ -9,9 +9,12 @@ public class MenuPause : MonoBehaviour
     //public GameObject pauseMenuUI;
     public GameObject fps;
 
+    public bool isCursorVisible;
+
     private void Awake()
     {
         fps = GameObject.FindWithTag("Player");
+        isCursorVisible = true;
     }
     void Update()
     {
@@ -20,19 +23,19 @@ public class MenuPause : MonoBehaviour
             
             if (GameIsPaused)
             {
-                
                 Reprendre();
             }
             else
             {
-                Cursor.lockState = CursorLockMode.None;
                 Pause();
             }
         }
+        Debug.Log(isCursorVisible);
     }
 
     void Reprendre()
     {
+        Cursor.visible = false;
         transform.GetChild(0).gameObject.SetActive(false);
         //fps.SetActive(true);
         Time.timeScale = 1f;
@@ -40,6 +43,8 @@ public class MenuPause : MonoBehaviour
     }
     void Pause()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         transform.GetChild(0).gameObject.SetActive(true);
         //fps.SetActive(false);
         Time.timeScale = 0f;
@@ -47,6 +52,8 @@ public class MenuPause : MonoBehaviour
     }
     public void BTMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(0);
     }
     public void BTReprendre()

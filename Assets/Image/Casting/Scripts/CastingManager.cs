@@ -54,6 +54,7 @@ public class CastingManager : MonoBehaviour
             ND1 = false;
             transform.GetChild(1).GetComponent<CastingUIAssistant>().ND1 = true;
             real.transform.GetChild(0).gameObject.SetActive(true);
+            Cursor.visible = false;
         }
 
         if (ND2 && Time.timeSinceLevelLoad >= timerr + 10f)
@@ -94,6 +95,7 @@ public class CastingManager : MonoBehaviour
         {
             ND7 = false;
             transform.GetChild(2).gameObject.SetActive(true);
+            Cursor.visible = true;
         }
         
 
@@ -118,6 +120,7 @@ public class CastingManager : MonoBehaviour
                 real.transform.GetChild(9).gameObject.SetActive(true);
                 real.transform.GetChild(7).gameObject.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<CastingPlayerLook>().isEnable = true;
                 transform.GetChild(2).gameObject.SetActive(false);
             }
@@ -139,7 +142,7 @@ public class CastingManager : MonoBehaviour
                 real.transform.GetChild(6).gameObject.SetActive(true);
             }
 
-            if (Time.timeSinceLevelLoad >= timer + 8f)
+            if (Time.timeSinceLevelLoad >= timer + 12f)
             {
                 GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goPremierSoir = true;
             }

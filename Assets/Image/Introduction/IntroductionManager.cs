@@ -31,6 +31,7 @@ public class IntroductionManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         ND1 = true;
         ND2 = true;
         ND3 = true;
