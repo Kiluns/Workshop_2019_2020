@@ -632,6 +632,7 @@ MonoBehaviour:
   isFrigo: 0
   isTelephone: 0
   isFenetre: 0
+  mySoiree: 1
 --- !u!4 &25619118
 Transform:
   m_ObjectHideFlags: 0
@@ -8602,6 +8603,80 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &751482777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7584896914766241129, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1531964884}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 131.25095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645724, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584896915724645725, guid: 3f47321516492f146ac58f5aec986c64,
+        type: 3}
+      propertyPath: m_Name
+      value: MenuPause
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f47321516492f146ac58f5aec986c64, type: 3}
 --- !u!1 &782355439
 GameObject:
   m_ObjectHideFlags: 0
@@ -13848,6 +13923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hubTextWritter: {fileID: 2129727344}
+  mySoiree: 0
   ND1: 0
   ND2: 0
   ND3: 0
@@ -13868,6 +13944,7 @@ MonoBehaviour:
   ND18: 0
   ND19: 0
   ND20: 0
+  ND21: 0
 --- !u!1001 &1120212244
 PrefabInstance:
   m_ObjectHideFlags: 0
