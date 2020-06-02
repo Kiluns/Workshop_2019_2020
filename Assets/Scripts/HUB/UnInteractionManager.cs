@@ -111,7 +111,7 @@ public class UnInteractionManager : MonoBehaviour
             if (!isCanape && !isFrigo)
                 isFinish = true;
 
-            if (isFinish)
+            if (!isCanape)
             {
                 if (ND6)
                 {
@@ -203,7 +203,7 @@ public class UnInteractionManager : MonoBehaviour
             if (!isCanape && !isFrigo)
                 isFinish = true;
 
-            if (isFinish)
+            if (!isCanape)
             {
                 if (ND6)
                 {
