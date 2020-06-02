@@ -48,7 +48,20 @@ public class UnInteractionManager : MonoBehaviour
 
     void Start()
     {
-        mySoiree = 1;
+        if(GameObject.FindGameObjectWithTag("SceneLoadingManager") != null)
+        {
+            if (GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().activationPremierSoir == true)
+                mySoiree = 0;
+            else if (GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().activationSecondSoir == true)
+                mySoiree = 1;
+            else if (GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().activationDernierSoir == true)
+                mySoiree = 2;
+        }
+        else
+        {
+            mySoiree = 0;
+        }
+            
         ND1 = true;
         ND2 = true;
         ND3 = true;
@@ -185,6 +198,7 @@ public class UnInteractionManager : MonoBehaviour
 
             if (!isTV)
             {
+                TV.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
                 TV.SetActive(false);
                 if (ND5)
                 {
@@ -201,6 +215,7 @@ public class UnInteractionManager : MonoBehaviour
 
             if (!isMiroir)
             {
+                Miroir.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
                 Miroir.SetActive(false);
                 if (ND5)
                 {
@@ -211,6 +226,7 @@ public class UnInteractionManager : MonoBehaviour
 
             if (!isCadres)
             {
+                Cadres.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
                 Cadres.SetActive(false);
                 if (ND3)
                 {
@@ -221,6 +237,7 @@ public class UnInteractionManager : MonoBehaviour
 
             if (!isFrigo)
             {
+                Frigo.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
                 Frigo.SetActive(false);
                 if (ND1)
                 {
@@ -231,6 +248,7 @@ public class UnInteractionManager : MonoBehaviour
 
             if (!isTelephone)
             {
+                Telephone.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
                 Telephone.SetActive(false);
                 if (ND2)
                 {
@@ -241,6 +259,7 @@ public class UnInteractionManager : MonoBehaviour
 
             if (!isFenetre)
             {
+                Fenetre.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
                 Fenetre.SetActive(false);
                 if (ND4)
                 {

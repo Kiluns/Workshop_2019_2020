@@ -27,6 +27,12 @@ public class HubTextWritter : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0f)
             {
+                if(characterIndex >= textToWrite.Length)
+                {
+                    uiText = null;
+                    return;
+                }
+
                 timer += timePerCharacter;
                 characterIndex++;
                 uiText.text = textToWrite.Substring(0, characterIndex);
