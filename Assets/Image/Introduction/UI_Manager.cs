@@ -68,7 +68,7 @@ public class UI_Manager : MonoBehaviour
         if (ND9 && Time.timeSinceLevelLoad >= timerr + 18f)
         {
             ND9 = false;
-            textWritter.AddWriter(messageText, "« Voilà... je ne sais pas trop ce que vous voulez que je fasses ? Euh, je peux, euh, à peut près tout faire, enfin je penses, ehm... euh, on, on commence ? »", 0.05f);
+            textWritter.AddWriter(messageText, "« Voilà... je ne sais pas trop ce que vous voulez que je fasse ? Euh, je peux, euh, à peu près tout faire, enfin je pense, ehm... euh, on, on commence ? »", 0.05f);
         }
 
         if (ND2 && Time.timeSinceLevelLoad >= timerr + 38.5f) //Scene 2
@@ -107,13 +107,13 @@ public class UI_Manager : MonoBehaviour
         if (ND11 && Time.timeSinceLevelLoad >= timerr + 106.5f) 
         {
             ND11 = false;
-            textWritter.AddWriter(messageText, "« Comment la décrire, c'est une personnalitée euh... Pleine de vie ! C'est c'est c'est, elle est vivante, elle est joyeuse, elle est époustouflante, elle est créative, elle a tout pour plaire, elle a... d'ailleurs je comprend même pas comment elle a pu me choisir moi... »", 0.05f);
+            textWritter.AddWriter(messageText, "« Comment la décrire, c'est une personnalité euh... Pleine de vie ! C'est c'est c'est, elle est vivante, elle est joyeuse, elle est époustouflante, elle est créative, elle a tout pour plaire, elle a... d'ailleurs je comprend même pas comment elle a pu me choisir moi... »", 0.05f);
         }
 
         if (ND12 && Time.timeSinceLevelLoad >= timerr + 123.5f) 
         {
             ND12 = false;
-            textWritter.AddWriter(messageText, "« En réalité enfin, quand on me voit... Je réussie pas grand choses, j'ai beaucoup * rire nerveux* beaucoup joué aux dès mais ça ne suffit pas, elle est capbale de tout, de tout faire, elle est... Elle est... Elle est Merveilleuse... »", 0.05f);
+            textWritter.AddWriter(messageText, "« En réalité enfin, quand on me voit... Je réussis pas grand choses, j'ai beaucoup * rire nerveux* beaucoup joué aux dés mais ça ne suffit pas, elle est capbale de tout, de tout faire, elle est... Elle est... Elle est merveilleuse... »", 0.05f);
         }
 
         if (ND6 && Time.timeSinceLevelLoad >= timerr + 146f) //Scene 5
@@ -132,7 +132,7 @@ public class UI_Manager : MonoBehaviour
         if (ND13 && Time.timeSinceLevelLoad >= timerr + 176f)
         {
             ND13 = false;
-            textWritter.AddWriter(messageText, "« C'est pas facile, je... Il faut qu'on me laisse une chance, euh... Je suis sûre que... J'ai peut-être pas un bon niveau mais pour l'instant je demande qu'à m'améliorer ? Je, je ne demande qu'à apprendre euh ça ça ça va venir ! Et euh... On reprend ? »", 0.05f);
+            textWritter.AddWriter(messageText, "« C'est pas facile, je... Il faut qu'on me laisse une chance, euh... Je suis sûr que... J'ai peut-être pas un bon niveau mais pour l'instant je demande qu'à m'améliorer ? Je, je ne demande qu'à apprendre euh ça ça ça va venir ! Et euh... On reprend ? »", 0.05f);
         }
 
         if (ND8 && Time.timeSinceLevelLoad >= timerr + 199f)

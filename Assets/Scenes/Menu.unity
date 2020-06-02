@@ -1379,7 +1379,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -1396,6 +1396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223bfbe9220660f488df54a6e0ac1688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
 --- !u!1 &803460923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,7 +2085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035629150
 RectTransform:
   m_ObjectHideFlags: 0
