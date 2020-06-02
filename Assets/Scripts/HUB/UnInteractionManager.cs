@@ -85,6 +85,27 @@ public class UnInteractionManager : MonoBehaviour
 
     void Update()
     {
+        if(mySoiree == 2)
+        {
+            if (!isFenetre)
+            {
+                Fenetre.GetComponent<activateOutline>().targetToOutline.GetComponent<Outline>().enabled = false;
+                Fenetre.SetActive(false);
+                if (ND4)
+                {
+                    ND4 = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BlinkFeedback>().isActive = false;
+                    timer = Time.timeSinceLevelLoad;
+                }
+
+                if(Time.timeSinceLevelLoad >= timer + 5f)
+                {
+                    GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goFin = true;
+                }
+            }
+
+        }
+
         if(mySoiree == 1)
         {
             if (!isCanape && !isFrigo)

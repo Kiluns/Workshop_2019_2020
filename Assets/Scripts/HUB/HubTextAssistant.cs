@@ -34,6 +34,7 @@ public class HubTextAssistant : MonoBehaviour
     public bool ND19;
     public bool ND20;
     public bool ND21;
+    public bool ND22;
 
 
 
@@ -66,12 +67,13 @@ public class HubTextAssistant : MonoBehaviour
         ND19 = false;
         ND20 = false;
         ND21 = false;
+        ND22 = false;
     }
 
     public void Update()
     {
-        if(mySoiree == 0)
-        {
+        
+        
             if (ND1)
             {
                 ND1 = false;
@@ -215,6 +217,13 @@ public class HubTextAssistant : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player").GetComponent<HUBPlayer>().isWalkEnable = true;
                 ND1 = true;
             }
+
+        //Troisieme soirée
+
+        if (ND22)
+        {
+            ND22 = false;
+            hubTextWritter.AddWriter(messageText, "« - ... »", 0.05f);
         }
         
     }

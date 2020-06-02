@@ -16,12 +16,15 @@ public class activateOutline : MonoBehaviour
     private bool activeSmoothOutline;
     private bool desactiveSmoothOutline;
 
+    private bool ND1;
+
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         activeSmoothOutline = false;
         desactiveSmoothOutline = false;
         targetToOutline.GetComponent<Outline>().enabled = false;
+        ND1 = true;
     }
     
     
@@ -85,15 +88,42 @@ public class activateOutline : MonoBehaviour
         }
     }
     
-    void SmoothOutline()
-    {
-        smoothOutline = Mathf.Lerp(smoothOutline, 6f, Time.deltaTime);
-    }
-    
     void Update()
     {
-        if(isTriggered && Input.GetKeyDown(KeyCode.E))
+        if (ND1 && ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 2)
         {
+            ND1 = false;
+            if (this.name == "TriggerCanape")
+                gameObject.SetActive(false);
+            if (this.name == "TriggerMiroir")
+                gameObject.SetActive(false);
+            if (this.name == "TriggerFrigo")
+                gameObject.SetActive(false);
+            if (this.name == "TriggerTele")
+                gameObject.SetActive(false);
+            if (this.name == "TriggerCadres")
+                gameObject.SetActive(false);
+            Player.GetComponent<HUBPlayer>().transform.GetChild(1).GetComponent<BlinkFeedback>().isActive = false;
+        }
+
+        if (isTriggered && Input.GetKeyDown(KeyCode.E))
+        {
+            if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 2)
+            {
+                if (this.name == "TriggerFenetre")
+                {
+                    ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
+                    IllusManager.GetComponent<IlluInteraction>().myIllu = 7;
+                    IllusManager.GetComponent<IlluInteraction>().troisiemeSoir = true;
+                    IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
+                }
+
+                if (this.name == "TriggerTelephone")
+                {
+                    GameObject.FindGameObjectWithTag("Realisateur").GetComponent<HubTextAssistant>().ND22 = true;
+                }
+            }
+
             if (ZeroManager.GetComponent<UnInteractionManager>().mySoiree == 1)
             {
                 if (this.name == "TriggerCanape")
