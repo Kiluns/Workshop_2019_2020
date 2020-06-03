@@ -34,6 +34,13 @@ public class SceneLoading : MonoBehaviour
 
     private void Update()
     {
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            activationPremierSoir = true;
+            activationSecondSoir = false;
+            activationDernierSoir = false;
+        }
+
         ChangementScene();
     }
 

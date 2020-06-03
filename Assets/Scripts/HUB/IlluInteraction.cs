@@ -24,6 +24,7 @@ public class IlluInteraction : MonoBehaviour
     public bool isInteracting;
     [HideInInspector]
     public bool troisiemeSoir;
+    public bool deuxiemeSoir;
 
     private float myTime = 0f;
     private bool neverDone;
@@ -34,6 +35,7 @@ public class IlluInteraction : MonoBehaviour
     void Start()
     {
         troisiemeSoir = false;
+        deuxiemeSoir = false;
         isInteracting = false;
         neverDone = true;
         nneverDone = true;
@@ -68,12 +70,25 @@ public class IlluInteraction : MonoBehaviour
                 {
                     transform.GetChild(0).gameObject.SetActive(true);
                     transform.GetChild(myIllu).gameObject.SetActive(true);
+                    if (deuxiemeSoir)
+                    {
+                        transform.GetChild(myIllu).GetComponent<Image>().enabled = false;
+                        transform.GetChild(myIllu).GetChild(0).gameObject.SetActive(true);
+                    }
                     if (troisiemeSoir)
                     {
                         transform.GetChild(myIllu).GetComponent<Image>().enabled = false;
                         transform.GetChild(myIllu).GetChild(0).gameObject.SetActive(true);
                     }
                     BlackCrossFadeOUT();
+                    if (deuxiemeSoir)
+                    {
+                        myTime = Time.time + 8f;
+                    }
+                    else
+                    {
+                        myTime = Time.time + 4f;
+                    }
                     myTime = Time.time + 4f;
                     nneverDone = false;
                 }

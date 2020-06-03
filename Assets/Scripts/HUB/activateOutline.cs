@@ -172,6 +172,7 @@ public class activateOutline : MonoBehaviour
                     Player.GetComponent<HUBPlayer>().isWalkEnable = false;
                     ZeroManager.GetComponent<UnInteractionManager>().isFenetre = false;
                     IllusManager.GetComponent<IlluInteraction>().myIllu = 7;
+                    IllusManager.GetComponent<IlluInteraction>().deuxiemeSoir = true;
                     IllusManager.GetComponent<IlluInteraction>().isInteracting = true;
                 }
 

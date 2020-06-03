@@ -9,13 +9,8 @@ public class MenuPause : MonoBehaviour
     //public GameObject pauseMenuUI;
     public GameObject fps;
 
-    public bool isCursorVisible;
 
-    private void Awake()
-    {
-        fps = GameObject.FindWithTag("Player");
-        isCursorVisible = true;
-    }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -30,25 +25,49 @@ public class MenuPause : MonoBehaviour
                 Pause();
             }
         }
-        Debug.Log(isCursorVisible);
     }
 
     void Reprendre()
     {
-        Cursor.visible = false;
-        transform.GetChild(0).gameObject.SetActive(false);
-        //fps.SetActive(true);
         Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        if(SceneManager.GetActiveScene().name == "Appartement")
+        {
+            transform.GetChild(10).gameObject.SetActive(false);
+            fps.SetActive(false);
+        }
+        else if (SceneManager.GetActiveScene().name == "Bureau")
+        {
+            transform.GetChild(3).gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+        
         GameIsPaused = false;
     }
     void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        transform.GetChild(0).gameObject.SetActive(true);
-        //fps.SetActive(false);
-        Time.timeScale = 0f;
+        if (SceneManager.GetActiveScene().name == "Appartement")
+        {
+            transform.GetChild(10).gameObject.SetActive(true);
+            fps.SetActive(true);
+        }
+        else if(SceneManager.GetActiveScene().name == "Bureau")
+        {
+            transform.GetChild(3).gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
         GameIsPaused = true;
+        Time.timeScale = 0f;
     }
     public void BTMenu()
     {

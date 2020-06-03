@@ -28,6 +28,7 @@ public class IntroductionManager : MonoBehaviour
     private bool ND19;
     private bool ND20;
     private bool ND21;
+    private bool ND23;
 
     public GameObject transition01;
     public GameObject transition02;
@@ -60,12 +61,14 @@ public class IntroductionManager : MonoBehaviour
         ND19 = true;
         ND20 = true;
         ND21 = true;
+        ND23 = true;
 
         timer = Time.timeSinceLevelLoad;
     }
 
     void Update()
     {
+        Debug.Log(Time.timeSinceLevelLoad);
         transition01.SetActive(true);
         //Premier fondu au noir
         if (ND20 && Time.timeSinceLevelLoad >= timer + 0.55f)
@@ -95,29 +98,29 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(6).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND3 && Time.timeSinceLevelLoad >= timer + 31f)
+        if (ND3 && Time.timeSinceLevelLoad >= timer + 30f)
         {
-            transition06.SetActive(true);
+            transition02.SetActive(true);
             ND3 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 2
-        if (ND4 && Time.timeSinceLevelLoad >= timer + 32.5f)
+        if (ND4 && Time.timeSinceLevelLoad >= timer + 31.5f)
         {
             ND4 = false;
             transform.GetChild(2).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND5 && Time.timeSinceLevelLoad >= timer + 36f)
+        if (ND5 && Time.timeSinceLevelLoad >= timer + 35f)
         {
             ND5 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 2
-        if (ND6 && Time.timeSinceLevelLoad >= timer + 38.5f)
+        if (ND6 && Time.timeSinceLevelLoad >= timer + 36.5f)
         {
             ND6 = false;
             transform.GetChild(7).gameObject.SetActive(true);
@@ -125,8 +128,8 @@ public class IntroductionManager : MonoBehaviour
         //Fondu au noir
         if (ND7 && Time.timeSinceLevelLoad >= timer + 43.5f)
         {
-            transition03.SetActive(true);
             ND7 = false;
+            transition03.SetActive(true);
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
@@ -138,20 +141,20 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(3).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND9 && Time.timeSinceLevelLoad >= timer + 48.5f)
+        if (ND9 && Time.timeSinceLevelLoad >= timer + 47.5f)
         {
             ND9 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 3
-        if (ND10 && Time.timeSinceLevelLoad >= timer + 51f)
+        if (ND10 && Time.timeSinceLevelLoad >= timer + 49f)
         {
             ND10 = false;
             transform.GetChild(8).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND11 && Time.timeSinceLevelLoad >= timer + 82f)
+        if (ND11 && Time.timeSinceLevelLoad >= timer + 79f)
         {
             ND11 = false;
             transform.GetChild(11).gameObject.SetActive(true);
@@ -159,64 +162,70 @@ public class IntroductionManager : MonoBehaviour
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 4
-        if (ND12 && Time.timeSinceLevelLoad >= timer + 83.5f)
+        if (ND12 && Time.timeSinceLevelLoad >= timer + 80.5f)
         {
             ND12 = false;
             transform.GetChild(4).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND13 && Time.timeSinceLevelLoad >= timer + 87f)
+        if (ND13 && Time.timeSinceLevelLoad >= timer + 83f)
         {
             ND13 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 4
-        if (ND14 && Time.timeSinceLevelLoad >= timer + 89.5f)
+        if (ND14 && Time.timeSinceLevelLoad >= timer + 84.5f)
         {
             ND14 = false;
             transform.GetChild(9).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND15 && Time.timeSinceLevelLoad >= timer + 138.5f)
+        if (ND15 && Time.timeSinceLevelLoad >= timer + 133.5f)
         {
-            transition05.SetActive(true);
+            transition04.SetActive(true);
             ND15 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
         //Clap 5
-        if (ND16 && Time.timeSinceLevelLoad >= timer + 140f)
+        if (ND16 && Time.timeSinceLevelLoad >= timer + 135f)
         {
             ND16 = false;
             transform.GetChild(5).gameObject.SetActive(true);
         }
         //Fondu au noir
-        if (ND17 && Time.timeSinceLevelLoad >= timer + 143.5f)
+        if (ND17 && Time.timeSinceLevelLoad >= timer + 137.5f)
         {
-            transition04.SetActive(true);
+            
             ND17 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
         }
         //Scene 5
-        if (ND18 && Time.timeSinceLevelLoad >= timer + 146f)
+        if (ND18 && Time.timeSinceLevelLoad >= timer + 139f)
         {
             ND18 = false;
             transform.GetChild(10).gameObject.SetActive(true);
         }
 
-        if (ND21 && Time.timeSinceLevelLoad >= timer + 199f)
+        if (ND21 && Time.timeSinceLevelLoad >= timer + 190f)
         {
-            transition02.SetActive(true);
+            transition05.SetActive(true);
             ND21 = false;
             transform.GetChild(11).gameObject.SetActive(true);
             transform.GetChild(11).gameObject.GetComponent<BlackScreenManager>().timer = Time.timeSinceLevelLoad;
             transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
 
-        if(Time.timeSinceLevelLoad >= 209f)
+        if (ND23 && Time.timeSinceLevelLoad >= timer + 200f)
+        {
+            ND23 = false;
+            transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().SetText("");
+        }
+
+        if (Time.timeSinceLevelLoad >= 203f)
         {
             GameObject.FindGameObjectWithTag("SceneLoadingManager").GetComponent<SceneLoading>().goBureau = true;
         }

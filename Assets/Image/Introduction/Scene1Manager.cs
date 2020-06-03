@@ -24,13 +24,13 @@ public class Scene1Manager : MonoBehaviour
         if (gameObject.name == "Scene1")
             time += 25f;
         else if (gameObject.name == "Scene2")
-            time += 5f;
+            time += 8f;
         else if (gameObject.name == "Scene3")
             time += 31f;
         else if (gameObject.name == "Scene4")
-            time += 49f;
+            time += 50f;
         else if (gameObject.name == "Scene5")
-            time += 53f;
+            time += 52f;
     }
 
     void Update()

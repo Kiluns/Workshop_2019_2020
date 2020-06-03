@@ -1379,10 +1379,10 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
 --- !u!114 &583074171
 MonoBehaviour:
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223bfbe9220660f488df54a6e0ac1688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  video: {fileID: 0}
+  video: {fileID: 583074168}
 --- !u!1 &803460923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2858,14 +2858,14 @@ RectTransform:
   m_GameObject: {fileID: 1544169332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -870}
-  m_LocalScale: {x: 5.1961527, y: 5.1961527, z: 5.1961527}
+  m_LocalScale: {x: 7.0849543, y: 7.0849543, z: 7.0849543}
   m_Children: []
   m_Father: {fileID: 848833056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6}
+  m_AnchoredPosition: {x: 0, y: 0.9}
   m_SizeDelta: {x: 819.19995, y: 610.80005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1544169334
