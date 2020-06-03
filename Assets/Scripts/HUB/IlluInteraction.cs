@@ -72,12 +72,13 @@ public class IlluInteraction : MonoBehaviour
                     transform.GetChild(myIllu).gameObject.SetActive(true);
                     if (deuxiemeSoir)
                     {
-                        transform.GetChild(myIllu).GetComponent<Image>().enabled = false;
                         transform.GetChild(myIllu).GetChild(0).gameObject.SetActive(true);
+                        transform.GetChild(myIllu).GetComponent<SpriteRenderer>().enabled = false;
                     }
                     if (troisiemeSoir)
                     {
-                        transform.GetChild(myIllu).GetComponent<Image>().enabled = false;
+                        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+                        transform.GetChild(myIllu).GetComponent<SpriteRenderer>().enabled = false;
                         transform.GetChild(myIllu).GetChild(0).gameObject.SetActive(true);
                     }
                     BlackCrossFadeOUT();
